@@ -23,4 +23,5 @@
             <li><a href="index.php?action=register.php">Register</a></li>
         </ul>
     </nav>
+
 </header>
