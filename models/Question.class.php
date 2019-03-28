@@ -9,17 +9,17 @@
 class Questions
 {
     private $_id;
-    private $_tittle;
+    private $_title;
     private $_subject;
     private $_category;
     private $_member;
     private $_creation_date;
     private $_state;
 
-    public function __construct($id, $tittle, $subject, $category, $member, $creation_date, $state)
+    public function __construct($id, $title, $subject, $category, $member, $creation_date, $state)
     {
         $this->_id = $id;
-        $this->_tittle = $tittle;
+        $this->_title = $title;
         $this->_subject = $subject;
         $this->_category = $category;
         $this->_member = $member;
@@ -47,9 +47,9 @@ class Questions
     /**
      * @return mixed
      */
-    public function getTittle()
+    public function getTitle()
     {
-        return $this->_tittle;
+        return $this->_title;
     }
 
     /**
