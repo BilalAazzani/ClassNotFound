@@ -14,6 +14,8 @@ class HomeController
 
     public function run(){
 
+
+
         #view
         require_once (PATH_VIEWS.'home.php');
     }

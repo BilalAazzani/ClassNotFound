@@ -29,7 +29,7 @@ if(empty($_GET['action'])){
 switch ($_GET['action']) {
     case 'login': # action=login
         require_once(PATH_CONTROLLERS.'LoginController.php');
-        $controller = new HomeController();
+        $controller = new LoginController();
         break;
     case 'admin': # action = admin
         require_once(PATH_CONTROLLERS.'AdminController.php');
@@ -59,7 +59,7 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'RegisterController.php');
         $controller = new RegisterController();
         break;
-    default: # Par défaut, le contrôleur de l'accueil est sélectionné
+    default: # default controller home
         require_once(PATH_CONTROLLERS.'HomeController.php');
         $controller = new HomeController();
         break;
