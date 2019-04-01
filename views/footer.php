@@ -1,4 +1,5 @@
 <footer>
+    ClassNotFound®, something for everyone
 
 </footer>
 

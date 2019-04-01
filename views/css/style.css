@@ -33,3 +33,12 @@ body {
 .content {
     background: darkgray;
 }
+
+
+/*Footer*/
+footer {
+    background-color: navajowhite;
+    padding: 15px 20px;
+    float: bottom;
+}
+
