@@ -27,3 +27,9 @@ nav a:hover {
 body {
     background-color: grey;
 }
+
+/*body*/
+
+.content {
+    background: darkgray;
+}

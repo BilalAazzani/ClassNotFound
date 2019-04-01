@@ -19,8 +19,8 @@
     <nav>
         <ul>
             <li><a href="index.php?action=question.php">Ask question</a></li>
-            <li><a href="index.php?action=login.php">Log in</a></li>
-            <li><a href="index.php?action=register.php">Register</a></li>
+            <li class="login"><a href="index.php?action=login.php">Log in</a></li>
+            <li class="login"><a href="index.php?action=register.php">Register</a></li>
         </ul>
     </nav>
 
