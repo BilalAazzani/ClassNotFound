@@ -16,6 +16,7 @@ class HomeController
 
 
 
+
         #view
         require_once (PATH_VIEWS.'home.php');
     }

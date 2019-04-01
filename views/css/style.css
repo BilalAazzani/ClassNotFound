@@ -8,7 +8,9 @@ header h1 img {
 
 header {
     background-color: #4E4E4E;
+
 }
+
 
 li {
     display: inline;
@@ -31,5 +33,9 @@ body {
 /*body*/
 
 .content {
-    background: darkgray;
+    background: beige;
+}
+
+td {
+    border: 1px solid black;
 }
