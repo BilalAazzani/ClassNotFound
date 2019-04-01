@@ -28,6 +28,11 @@ body {
     background-color: grey;
 }
 
+.search {
+    width: 90%;
+    text-align: center;
+}
+
 /*body*/
 
 .content {
