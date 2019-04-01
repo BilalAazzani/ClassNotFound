@@ -3,7 +3,7 @@
     <div class="formulaire">
         <form action="../index.php" method="post">
             <p>
-                <input type="text" name="keyword">
+                <input class="search" type="text" name="keyword">
                 <input type="submit" name="form_search" value="Search">
             </p>
         </form>
