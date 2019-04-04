@@ -31,7 +31,7 @@ class Db{
     public function select_question($keyword=''){
         if ($keyword != '') {
             $keyword = str_replace("%", "\%", $keyword);
-            $query = "SELECT * FROM questions WHERE subjet LIKE :keyword COLLATE utf8_bin";
+            $query = "SELECT * FROM questions WHERE subject LIKE :keyword COLLATE utf8_bin";
             $ps = $this->_db->prepare($query);
             $ps->bindValue(':keyword',"%$keyword%");
         } else {
