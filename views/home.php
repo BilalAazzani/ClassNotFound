@@ -17,7 +17,12 @@
             </tr>
         </thead>
         <tbody>
-
+        <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>
+            <tr>
+                <td><span class="html"><?php echo $tabquestions[$i]->html_titre() ?></span></td>
+                <td><?php echo $tabquestions[$i]->html_auteur() ?></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 
