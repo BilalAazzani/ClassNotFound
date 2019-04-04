@@ -43,7 +43,7 @@ class Db{
 
         $table = array();
         while ($row = $ps->fetch()) {
-            $table[] = new Question($row->id,$row->title,$row->subject,$row->category,$row->member,$row->creation_date,$row->state,$row->goodanswer);
+            $table[] = new Question($row->question_id,$row->title,$row->subject,$row->category_id,$row->member_id,$row->creation_date,$row->state,$row->answer_id);
         }
         return $table;
 

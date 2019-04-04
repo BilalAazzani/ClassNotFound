@@ -19,7 +19,7 @@
         <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>
             <tr>
                 <td><span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span></td>
-                <td><?php echo $tabquestions[$i]->html_auteur() ?></td>
+                <td><?php echo $tabquestions[$i]->getCategory() ?></td>
             </tr>
         <?php } ?>
         </tbody>
