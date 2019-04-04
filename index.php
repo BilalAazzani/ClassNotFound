@@ -35,7 +35,7 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'AdminController.php');
         $controller = new AdminController();
         break;
-    case 'archive': # aciton = archive
+    case 'archive': # action = archive
         require_once(PATH_CONTROLLERS.'ArchiveController.php');
         $controller =   new ArchiveController();
         break;

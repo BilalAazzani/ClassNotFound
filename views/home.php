@@ -1,6 +1,6 @@
 <section class="content">
     <h2>All the Questions </h2>
-    <div class="formulaire">
+    <div class="form">
         <form action="../index.php" method="post">
             <p>
                 <input class="search" type="text" name="keyword" value="<?php echo $html_keyword ?>"/>
