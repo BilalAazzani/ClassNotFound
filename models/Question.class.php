@@ -16,8 +16,9 @@ class Question
     private $_creation_date;
     private $_state;
     private $_goodanswer;
+    private $_cat_name;
 
-    public function __construct($id, $title, $subject, $category, $member, $creation_date, $state, $goodanswer)
+    public function __construct($id, $title, $subject, $category, $member, $creation_date, $state, $goodanswer, $cat_name)
     {
         $this->_id = $id;
         $this->_title = $title;
@@ -27,7 +28,7 @@ class Question
         $this->_creation_date = $creation_date;
         $this-> _state = $state;
         $this-> _goodanswer = $goodanswer;
-
+        $this->_cat_name = $cat_name;
 
     }
 
@@ -94,6 +95,15 @@ class Question
     {
         return $this->_goodanswer;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCatName()
+    {
+        return $this->_cat_name;
+    }
+
 
 
 }

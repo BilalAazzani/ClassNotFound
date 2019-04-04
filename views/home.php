@@ -19,7 +19,7 @@
         <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>
             <tr>
                 <td><span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span></td>
-                <td><?php echo $tabquestions[$i]->getCategory() ?></td>
+                <td><?php echo $tabquestions[$i]->getCatName() ?></td>
             </tr>
         <?php } ?>
         </tbody>

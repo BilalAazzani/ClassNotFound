@@ -35,7 +35,7 @@ class Db{
             $ps = $this->_db->prepare($query);
             $ps->bindValue(':keyword',"%$keyword%");
         } else {
-            $query = 'SELECT * FROM questions ';
+            $query = 'SELECT * FROM questions q inner join categories c on c.category_id = q.category_id ';
             $ps = $this->_db->prepare($query);
         }
 
@@ -43,7 +43,7 @@ class Db{
 
         $table = array();
         while ($row = $ps->fetch()) {
-            $table[] = new Question($row->question_id,$row->title,$row->subject,$row->category_id,$row->member_id,$row->creation_date,$row->state,$row->answer_id);
+            $table[] = new Question($row->question_id,$row->title,$row->subject,$row->category_id,$row->member_id,$row->creation_date,$row->state,$row->answer_id,$row->name);
         }
         return $table;
 
