@@ -11,7 +11,7 @@
     <table>
         <thead>
             <tr>
-                <th width="250px">Vote</th>
+                <!--- <th width="250px">Vote</th> --->
                 <th width="840">Question</th>
                 <th width="330">Category</th>
             </tr>
@@ -19,7 +19,7 @@
         <tbody>
         <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>
             <tr>
-                <td><span class="html"><?php echo $tabquestions[$i]->html_titre() ?></span></td>
+                <td><span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span></td>
                 <td><?php echo $tabquestions[$i]->html_auteur() ?></td>
             </tr>
         <?php } ?>
