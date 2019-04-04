@@ -11,7 +11,6 @@
     <table>
         <thead>
             <tr>
-                <!--- <th width="250px">Vote</th> --->
                 <th width="840">Question</th>
                 <th width="330">Category</th>
             </tr>

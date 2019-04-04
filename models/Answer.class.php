@@ -5,7 +5,7 @@
  * Date: 28-03-19
  * Time: 07:58
  */
-Class Answers {
+Class Answer {
     private $_answer_id;
     private $_subject;
     private $_member_id;

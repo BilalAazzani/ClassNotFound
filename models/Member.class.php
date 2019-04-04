@@ -6,7 +6,7 @@
  * Time: 07:58
  */
 
-Class members
+Class member
 {
     private $_first_name;
     private $_last_name;

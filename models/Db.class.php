@@ -41,11 +41,11 @@ class Db{
 
         $ps->execute();
 
-        $tableau = array();
+        $table = array();
         while ($row = $ps->fetch()) {
-            $table[] = new Questions($row->id,$row->title,$row->subjet,$row->category,$row->member,$row->creation_date,$row->state,$row->goodanswer);
+            $table[] = new Question($row->id,$row->title,$row->subject,$row->category,$row->member,$row->creation_date,$row->state,$row->goodanswer);
         }
-        return $tableau;
+        return $table;
 
     }
 

@@ -6,7 +6,7 @@
  * Time: 07:58
  */
 
-Class Votes
+Class Vote
 {
     private $answer_id;
     private $_value;

@@ -6,7 +6,7 @@
  * Time: 07:58
  */
 
-class Questions
+class Question
 {
     private $_id;
     private $_title;

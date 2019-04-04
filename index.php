@@ -61,7 +61,7 @@ switch ($_GET['action']) {
         break;
     default: # default controller home
         require_once(PATH_CONTROLLERS.'HomeController.php');
-        $controller = new HomeController();
+        $controller = new HomeController($db);
         break;
 }
 
