@@ -62,5 +62,26 @@ class Db{
         $ps->bindValue(':goodanswer',$goodanswer);
         return $ps->execute();
     }
+
+    public function select_answer($keyword=''){
+        if ($keyword != '') {
+            $keyword = str_replace("%", "\%", $keyword);
+            $query = "SELECT * FROM answers WHERE subject LIKE :keyword COLLATE utf8_bin";
+            $ps = $this->_db->prepare($query);
+            $ps->bindValue(':keyword',"%$keyword%");
+        } else {
+            $query = 'SELECT * FROM answers ';
+            $ps = $this->_db->prepare($query);
+        }
+
+        $ps->execute();
+
+        $table = array();
+        while ($row = $ps->fetch()) {
+            $table[] = new Answer($row->answer_id,$row->subject,$row->member_id,$row->creation_date,$row->question_id);
+        }
+        return $table;
+
+    }
 }
 ?>
