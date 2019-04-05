@@ -18,7 +18,7 @@
         <tbody>
         <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>
             <tr>
-                <td><span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span></td>
+                <td><a href="index.php"><span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span></a></td>
                 <td><?php echo $tabquestions[$i]->getCatName() ?></td>
             </tr>
         <?php } ?>
