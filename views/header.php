@@ -18,6 +18,7 @@
 
     <nav>
         <ul>
+            <li><a href="index.php">Home</a></li>
             <li><a href="index.php?action=question">Ask question</a></li>
             <li class="login"><a href="index.php?action=login">Log in</a></li>
             <li class="login"><a href="index.php?action=register">Register</a></li>
