@@ -28,15 +28,15 @@ class Db{
         return self::$instance;
     }
 
-    public function select_question($keyword=''){
+    public static function select_question($keyword=''){
         if ($keyword != '') {
             $keyword = str_replace("%", "\%", $keyword);
             $query = "SELECT * FROM questions WHERE subject LIKE :keyword COLLATE utf8_bin";
-            $ps = $this->_db->prepare($query);
+            $ps = Db::getInstance()->_db->prepare($query);
             $ps->bindValue(':keyword',"%$keyword%");
         } else {
             $query = 'SELECT * FROM questions q inner join categories c on c.category_id = q.category_id ';
-            $ps = $this->_db->prepare($query);
+            $ps = Db::getInstance()->_db->prepare($query);
         }
 
         $ps->execute();
@@ -48,6 +48,26 @@ class Db{
         return $table;
 
     }
+
+
+    public static function get_question(int $id){
+
+        $query = "SELECT * FROM questions inner join members m on m.member_id = questions.member_id WHERE question_id = :id";
+        $ps = Db::getInstance()->_db->prepare($query);
+        $ps->bindValue(':id', $id, PDO::PARAM_INT);
+        $ps->execute();
+        return $ps->fetchAll()[0];
+
+    }
+
+    public static function get_answers(int $question_id){
+        $query = "SELECT * FROM answers inner join members m on m.member_id = answers.member_id WHERE question_id = :question_id ";
+        $ps = Db::getInstance()->_db->prepare($query);
+        $ps->bindValue(':question_id', $question_id, PDO::PARAM_INT);
+        $ps->execute();
+        return $ps->fetchAll();
+    }
+
 
     public function insert_question($title,$subject,$category,$member,$creation_date,$state,$goodanswer) {
         # Solution d'INSERT avec prepared statement

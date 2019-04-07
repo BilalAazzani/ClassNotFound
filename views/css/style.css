@@ -31,12 +31,17 @@ body {
 .search {
     width: 90%;
     text-align: center;
+
 }
 
 /*body*/
 
 .content {
     background:beige;
+}
+
+.form {
+
 }
 
 th {

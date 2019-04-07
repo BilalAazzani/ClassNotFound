@@ -19,6 +19,14 @@ spl_autoload_register('loadClass');
 require_once(PATH_MODELS . 'Db.class.php');
 $db=Db::getInstance();
 
+# Pour le header : admin ou login selon que la variable de session 'authentifie' existe ou pas
+if (empty($_SESSION['authentifie'])){
+    $actionloginadmin='login';
+    $libelleloginadmin='Login';
+} else {
+    $actionloginadmin='admin';
+    $libelleloginadmin='Zone Admin';
+}
 #header
 require_once(PATH_VIEWS.'header.php');
 
@@ -37,7 +45,7 @@ switch ($_GET['action']) {
         break;
     case 'archive': # action = archive
         require_once(PATH_CONTROLLERS.'ArchiveController.php');
-        $controller =   new ArchiveController();
+        $controller = new ArchiveController();
         break;
     case 'category': # action= category
         require_once(PATH_CONTROLLERS.'CategoryController.php');
@@ -53,11 +61,15 @@ switch ($_GET['action']) {
         break;
     case 'question': # action = question
         require_once(PATH_CONTROLLERS.'QuestionController.php');
-        $controller = new QuestionController();
+        $controller = new QuestionController('create');
         break;
     case 'register': # action=register
         require_once(PATH_CONTROLLERS.'RegisterController.php');
         $controller = new RegisterController();
+        break;
+    case 'show-question': # action=register
+        require_once(PATH_CONTROLLERS.'RegisterController.php');
+        $controller = new QuestionController('show');
         break;
     default: # default controller home
         require_once(PATH_CONTROLLERS.'HomeController.php');

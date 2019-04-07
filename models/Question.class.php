@@ -5,6 +5,8 @@
  * Date: 28-03-19
  * Time: 07:58
  */
+require_once 'Db.class.php';
+
 
 class Question
 {
@@ -103,7 +105,6 @@ class Question
     {
         return $this->_cat_name;
     }
-
 
 
 }
