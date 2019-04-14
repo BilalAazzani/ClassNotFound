@@ -11,8 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-
-<section class="container">
+<section class="content">
     <div class="row">
         <div class="col-12">
             <h1 class="text-center"><?php echo $question->title ?></h1>
@@ -24,7 +23,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="row">
         <?php
@@ -43,11 +41,7 @@
             <?php
         }
         ?>
-
     </div>
-
-
-
 </section>
 
 

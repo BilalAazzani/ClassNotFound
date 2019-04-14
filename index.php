@@ -68,7 +68,7 @@ switch ($_GET['action']) {
         $controller = new RegisterController();
         break;
     case 'show-question': # action=register
-        require_once(PATH_CONTROLLERS.'RegisterController.php');
+        require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController('show');
         break;
     default: # default controller home

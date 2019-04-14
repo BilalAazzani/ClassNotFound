@@ -22,8 +22,6 @@ function showQuestion(int $id) {
     include '../views/show-question.php';
 }
 
-
-
 class QuestionController
 {
     private $action;
