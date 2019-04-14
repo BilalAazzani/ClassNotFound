@@ -20,7 +20,7 @@
 
     <!-- Register -->
     <p>Not a member?
-        <a href="register.php">Register</a>
+        <a href="index.php?action=register">Register</a>
     </p>
 
 </form>
