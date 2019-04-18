@@ -8,11 +8,20 @@
 
 class RegisterController
 {
-    public function __construct()
+    private $_db;
+
+    public function __construct($db)
     {
+        $this->_db = $db;
+
     }
 
     public function run(){
+
+        if (!empty($_POST['form_register'])) {
+            $this->_db->insert_member($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['password']);
+
+        }
 
         require_once(PATH_VIEWS . 'register.php');
     }

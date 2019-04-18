@@ -15,14 +15,14 @@
                 <div class="col">
                     <!-- First name -->
                     <div class="md-form">
-                        <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                        <input type="text" id="materialRegisterFormFirstName" class="form-control" name="first_name">
                         <label for="materialRegisterFormFirstName">First name</label>
                     </div>
                 </div>
                 <div class="col">
                     <!-- Last name -->
                     <div class="md-form">
-                        <input type="email" id="materialRegisterFormLastName" class="form-control">
+                        <input type="text" id="materialRegisterFormLastName" class="form-control" name="last_name">
                         <label for="materialRegisterFormLastName">Last name</label>
                     </div>
                 </div>
@@ -30,13 +30,13 @@
 
             <!-- E-mail -->
             <div class="md-form mt-0">
-                <input type="email" id="materialRegisterFormEmail" class="form-control">
+                <input type="email" id="materialRegisterFormEmail" class="form-control" name="email">
                 <label for="materialRegisterFormEmail">E-mail</label>
             </div>
 
             <!-- Password -->
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="password">
                 <label for="materialRegisterFormPassword">Password</label>
                 <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
 
@@ -45,11 +45,7 @@
 
 
             <!-- Sign up button -->
-            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
-
-
-
-
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="form_register">Sign in</button>
 
         </form>
         <!-- Form -->
