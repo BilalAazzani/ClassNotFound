@@ -103,5 +103,25 @@ class Db{
         return $table;
 
     }
+
+    public function validate_member($email,$password) {
+        $query = 'SELECT password from members WHERE email=:email';
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':email',$email);
+        $ps->execute();
+        if ($ps->rowcount() == 0)
+            return false;
+        $hash = $ps->fetch()->password;
+        return password_verify($password, $hash);
+    }
+
+    public function verify_admin($email){
+        $query = 'SELECT is_admin from members WHERE email=:email';
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':email',$email);
+        $ps->execute();
+        $hash = $ps->fetch()->is_admin;
+        return $hash=1;
+    }
 }
 ?>

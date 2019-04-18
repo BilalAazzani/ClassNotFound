@@ -20,13 +20,14 @@ require_once(PATH_MODELS . 'Db.class.php');
 $db=Db::getInstance();
 
 # Pour le header : admin ou login selon que la variable de session 'authentifie' existe ou pas
-if (empty($_SESSION['authentifie'])){
+if (empty($_SESSION['authenticated'])){
     $actionloginadmin='login';
-    $libelleloginadmin='Login';
-} else {
+    $nameloginadmin='Login';
+} else{
     $actionloginadmin='admin';
-    $libelleloginadmin='Zone Admin';
+    $nameloginadmin='Admin Zone';
 }
+
 #header
 require_once(PATH_VIEWS.'header.php');
 
@@ -37,7 +38,7 @@ if(empty($_GET['action'])){
 switch ($_GET['action']) {
     case 'login': # action=login
         require_once(PATH_CONTROLLERS.'LoginController.php');
-        $controller = new LoginController();
+        $controller = new LoginController($db);
         break;
     case 'admin': # action = admin
         require_once(PATH_CONTROLLERS.'AdminController.php');
