@@ -33,8 +33,6 @@ class QuestionController
     public function run(){
         if ($this->action == 'show')
             require_once(PATH_VIEWS . 'show-question.php');
-        elseif ($this->action == 'create')
-            require_once(PATH_VIEWS . 'question.php');
 
     }
 }
