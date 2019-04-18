@@ -123,5 +123,15 @@ class Db{
         $hash = $ps->fetch()->is_admin;
         return $hash=1;
     }
+
+    public function insert_member($first_name,$last_name,$email,$password) {
+        $query = 'INSERT INTO members (first_name,last_name,email,password) values (:first_name,:last_name,:email,:password)';
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':firs_name',$first_name);
+        $ps->bindValue(':last_name',$last_name);
+        $ps->bindValue(':email',$email);
+        $ps->bindValue(':password',$password);
+        return $ps->execute();
+    }
 }
 ?>

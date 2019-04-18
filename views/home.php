@@ -5,19 +5,14 @@
     <div class="form">
 
         <div id="search">
-
             <form action="">
                 <input type="text" name="search" placeholder="Search..">
                 <input class="bouton" type="button" value="Search " />
-
             </form>
         </div>
 
     </div>
     </br>
-
-
-
 
     <table class="table table-striped">
 

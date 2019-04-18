@@ -1,6 +1,6 @@
 /* header */
 header {
-    background-color: #4E4E4E;
+    background-color: gray;
     padding: 10px;
 }
 
@@ -57,7 +57,7 @@ th {
 
 /*Footer*/
 footer {
-    background-color: navajowhite;
+    background-color: aliceblue;
     padding: 15px 20px;
     position:absolute;
     bottom:0;
