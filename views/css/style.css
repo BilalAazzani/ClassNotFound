@@ -28,10 +28,16 @@ body {
     background-color: grey;
 }
 
-.search {
-    width: 90%;
-    text-align: center;
 
+.search {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
 }
 
 /*body*/
