@@ -51,6 +51,7 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'CategoryController.php');
         $controller = new CategoryController();
         break;
+
     case 'logout': # action= logout
         require_once(PATH_CONTROLLERS.'LogoutController.php');
         $controller = new LogoutController();

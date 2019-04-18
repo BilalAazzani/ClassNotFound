@@ -1,21 +1,30 @@
 <section class="content">
     <h2>All the Questions </h2>
+    </br>
+
     <div class="form">
 
         <div id="search">
 
             <form action="">
-                <input class="champ" type="text" placeholder="Search"/>
-                <input class="bouton" type="button" value="Search" />
+                <input type="text" name="search" placeholder="Search..">
+                <input class="bouton" type="button" value="Search " />
+
             </form>
         </div>
+
     </div>
-    </div>
-    <table>
+    </br>
+
+
+
+
+    <table class="table table-striped">
+
         <thead>
             <tr>
-                <th width="840">Question</th>
-                <th width="330">Category</th>
+                <th width="840"> <scope="col"> Question</th>
+                <th width="330"> <scope="col">Category</th>
             </tr>
         </thead>
         <tbody>
