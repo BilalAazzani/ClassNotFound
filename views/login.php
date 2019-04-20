@@ -1,5 +1,5 @@
 <!-- Default form login -->
-<form class="text-center border border-light p-5" action="?action=login" method="post">
+<form class="text-center border border-light p-5" action="index.php?action=login" method="post">
     <p class="h4 mb-4">Sign in</p>
     <!-- Email -->
     <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
@@ -21,3 +21,4 @@
 
 </form>
 <!-- Default form login -->
+<div class="foot"><a href="<?php echo $url_home; ?>">Retour &agrave; l'accueil</a>

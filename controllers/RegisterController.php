@@ -18,7 +18,7 @@ class RegisterController
 
     public function run(){
 
-        if (!empty($_POST['form_register'])) {
+        if (isset($_POST['form_register'])) {
             $this->_db->insert_member($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['password']);
 
         }

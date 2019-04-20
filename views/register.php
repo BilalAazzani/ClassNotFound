@@ -9,7 +9,7 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form class="text-center" style="color: #757575;">
+        <form class="text-center" action="index.php?action=register" method="post" style="color: #757575;">
 
             <div class="form-row">
                 <div class="col">
@@ -54,3 +54,4 @@
 
 </div>
 <!-- Material form register -->
+<div class="foot"><a href="<?php echo $url_home; ?>">Retour &agrave; l'accueil</a>

@@ -1,7 +1,7 @@
 <?php
 #Session start
 session_start();
-
+// session_destroy();
 #Global variables
 define('PATH_VIEWS','views/');
 define('PATH_MODELS','models/');
@@ -18,15 +18,6 @@ spl_autoload_register('loadClass');
 # Data base connection
 require_once(PATH_MODELS . 'Db.class.php');
 $db=Db::getInstance();
-
-# Pour le header : admin ou login selon que la variable de session 'authentifie' existe ou pas
-if (empty($_SESSION['authenticated'])){
-    $actionloginadmin='login';
-    $nameloginadmin='Login';
-} else{
-    $actionloginadmin='admin';
-    $nameloginadmin='Admin Zone';
-}
 
 #header
 require_once(PATH_VIEWS.'header.php');
@@ -61,9 +52,10 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'MemberController.php');
         $controller = new MemberController();
         break;
-    case 'question': # action = question
-        require_once(PATH_CONTROLLERS.'CreateQuestionController.php');
-        $controller = new CreateQuestionController();
+    case 'question': # simplement afficher le formulaire
+    case 'insert-question': # on insere la question, une fois le form rempli
+        require_once(PATH_CONTROLLERS.'QuestionController.php');
+        $controller = new QuestionController($db, 'create');
         break;
     case 'register': # action=register
         require_once(PATH_CONTROLLERS.'RegisterController.php');
@@ -71,7 +63,7 @@ switch ($_GET['action']) {
         break;
     case 'show-question': # action=register
         require_once(PATH_CONTROLLERS.'QuestionController.php');
-        $controller = new QuestionController('show');
+        $controller = new QuestionController($db, 'show');
         break;
     default: # default controller home
         require_once(PATH_CONTROLLERS.'HomeController.php');

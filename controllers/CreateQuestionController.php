@@ -8,12 +8,23 @@
 
 class CreateQuestionController
 {
-    public function __construct()
+    private $_db;
+
+    public function __construct($db)
     {
+        $this->_db = $db;
+
     }
 
+
     public function run(){
-            require_once(PATH_VIEWS . 'question.php');
+        if (empty($_SESSION['authenticated'])) {
+            header("Location: index.php?action=home");
+            die();
+        }
+
+        $categories = $this->_db->select_categories();
+        require_once(PATH_VIEWS . 'question.php');
 
     }
 }

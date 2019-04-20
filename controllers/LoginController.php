@@ -6,6 +6,7 @@
  * Time: 10:07
  */
 
+
 class LoginController
 {
     private $_db;
@@ -16,29 +17,42 @@ class LoginController
 
     }
 
-    public function run(){
+    public function run()
+    {
 
         if (!empty($_SESSION['authenticated'])) {
             header("Location: index.php?action=home");
             die();
         }
 
-        $notification='';
-
-        if (empty($_POST)) {
-            # L'utilisateur doit remplir le formulaire
-            $notification='Please sign in';
-        } elseif (!$this->_db->validate_member($_POST['email'],$_POST['password'])) {
-            # Wrong credentials
-            $notification='Your email or password is wrong.';
-        } elseif ($this->_db->verify_admin($_POST['email'])){
-            $_SESSION['authenticated'] = 'autorised';
-            $_SESSION['login'] = $_POST['email'];
-            header("Location: index.php?action=admin");
-            die();
+        $notification = '';
+        $member = false;
+        if (!empty($_POST)) {
+            $member = $this->_db->validate_member($_POST['email'], $_POST['password']);
         }
 
+        if ($member) {
+            $_SESSION['authenticated'] = 'autorised';
+            $_SESSION['member'] = $member;
+            /*$_SESSION['member'] = new Member(
+                $member->first_name,
+                $member->last_name,
+                $member->member_id,
+                $member->email,
+                $member->password,
+                $member->is_admin,
+                $member->is_active
+            );*/
+            $_SESSION['login'] = $_POST['email'];
 
+            if ($member->is_admin == '1') {
+                header("Location: index.php?action=admin");
+            } else {
+                header("Location: index.php?action=home");
+            }
+        } else  {
+            $notification = 'Your email or password is wrong.';
+        }
         require_once(PATH_VIEWS . 'login.php');
     }
 

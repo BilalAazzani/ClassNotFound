@@ -50,7 +50,7 @@ class Db{
     }
 
 
-    public static function get_question(int $id){
+    public static function get_question($id){
 
         $query = "SELECT * FROM questions inner join members m on m.member_id = questions.member_id WHERE question_id = :id";
         $ps = Db::getInstance()->_db->prepare($query);
@@ -60,7 +60,7 @@ class Db{
 
     }
 
-    public static function get_answers(int $question_id){
+    public static function get_answers($question_id){
         $query = "SELECT * FROM answers inner join members m on m.member_id = answers.member_id WHERE question_id = :question_id ";
         $ps = Db::getInstance()->_db->prepare($query);
         $ps->bindValue(':question_id', $question_id, PDO::PARAM_INT);
@@ -69,18 +69,22 @@ class Db{
     }
 
 
-    public function insert_question($title,$subject,$category,$member,$creation_date,$state,$goodanswer) {
+    public function insert_question($title,$subject,$category,$member) {
         # Solution d'INSERT avec prepared statement
-        $query = 'INSERT INTO questions (title, subject, category, member, creation_date, state, goodanwser) values (:title, :subject, :category, :member, :creation_date, :state, :goodanwser)';
+        $query = 'INSERT INTO questions (title, subject, category_id, member_id) values (:title, :subject, :category, :member)';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':title',$title);
         $ps->bindValue(':subject',$subject);
         $ps->bindValue(':category',$category);
         $ps->bindValue(':member',$member);
-        $ps->bindValue(':creation',$creation_date);
-        $ps->bindValue(':state',$state);
-        $ps->bindValue(':goodanswer',$goodanswer);
-        return $ps->execute();
+
+
+        if ($ps->execute()) {
+            // cette fonction sert a recuperer l'id de la derniere question inseree
+            return $this->_db->lastInsertId();
+        } else {
+            return false;
+        }
     }
 
     public function select_answer($keyword=''){
@@ -105,14 +109,23 @@ class Db{
     }
 
     public function validate_member($email,$password) {
-        $query = 'SELECT password from members WHERE email=:email';
+        $query = 'SELECT * from members WHERE email=:email';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':email',$email);
         $ps->execute();
         if ($ps->rowcount() == 0)
             return false;
-        $hash = $ps->fetch()->password;
-        return password_verify($password, $hash);
+
+        $user = $ps->fetch();
+
+        if (password_verify($password, $user->password)) {
+
+            return $user;
+        }
+        else {
+            return false;
+        }
+
     }
 
     public function verify_admin($email){
@@ -125,13 +138,29 @@ class Db{
     }
 
     public function insert_member($first_name,$last_name,$email,$password) {
+        var_dump($first_name,$last_name,$email,$password);
         $query = 'INSERT INTO members (first_name,last_name,email,password) values (:first_name,:last_name,:email,:password)';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':first_name',$first_name);
         $ps->bindValue(':last_name',$last_name);
         $ps->bindValue(':email',$email);
-        $ps->bindValue(':password',$password);
+        $ps->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
         return $ps->execute();
+    }
+
+    public static function select_categories() {
+
+        $query = 'SELECT * FROM categories';
+        $ps = Db::getInstance()->_db->prepare($query);
+
+        $ps->execute();
+
+        $table = array();
+        while ($row = $ps->fetch()) {
+            $table[] = new Category($row->category_id, $row->name);
+        }
+        return $table;
+
     }
 }
 ?>

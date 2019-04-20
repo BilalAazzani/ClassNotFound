@@ -25,7 +25,7 @@
         <tbody>
         <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>
             <tr>
-                <td><a href="/projetphp/controllers/QuestionController.php?action=show&id=<?php echo $tabquestions[$i]->getId() ?>"><span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span></a></td>
+                <td><a href="index.php?action=show-question&id=<?php echo $tabquestions[$i]->getId() ?>"><span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span></a></td>
                 <td><?php echo $tabquestions[$i]->getCatName() ?></td>
             </tr>
         <?php } ?>
