@@ -1,10 +1,11 @@
 <!-- Material form register -->
 <div class="card">
-
     <h5 class="card-header info-color white-text text-center py-4">
         <strong>Sign up</strong>
     </h5>
-
+    <a href="index.php?action=login">
+        <?php echo "$notification" ?>
+    </a>
     <!--Card content-->
     <div class="card-body px-lg-5 pt-0">
 
@@ -45,7 +46,7 @@
 
 
             <!-- Sign up button -->
-            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="form_register">Sign in</button>
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" name="form_register">Sign up</button>
 
         </form>
         <!-- Form -->

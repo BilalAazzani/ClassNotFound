@@ -137,7 +137,6 @@ class Db{
     }
 
     public function insert_member($first_name,$last_name,$email,$password) {
-        var_dump($first_name,$last_name,$email,$password);
         $query = 'INSERT INTO members (first_name,last_name,email,password) values (:first_name,:last_name,:email,:password)';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':first_name',$first_name);
