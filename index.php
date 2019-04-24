@@ -41,16 +41,15 @@ switch ($_GET['action']) {
         break;
     case 'category': # action= category
         require_once(PATH_CONTROLLERS.'CategoryController.php');
-        $controller = new CategoryController();
+        $controller = new CategoryController($db);
         break;
-
     case 'logout': # action= logout
         require_once(PATH_CONTROLLERS.'LogoutController.php');
         $controller = new LogoutController();
         break;
     case 'member': # action = member
         require_once(PATH_CONTROLLERS.'MemberController.php');
-        $controller = new MemberController();
+        $controller = new MemberController($db);
         break;
     case 'insert-question': # insert when the form is completed
         require_once(PATH_CONTROLLERS.'QuestionController.php');

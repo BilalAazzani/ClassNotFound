@@ -20,7 +20,7 @@ class Db{
         }
     }
 
-    # Pattern Singleton
+    # Singleton pattern
     public static function getInstance() {
         if (is_null(self::$instance)) {
             self::$instance = new Db();
@@ -108,7 +108,7 @@ class Db{
     }
 
     public function validate_member($email,$password) {
-        $query = 'SELECT * from members WHERE email=:email';
+        $query = 'SELECT * from members WHERE email=:email AND is_active=1';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':email',$email);
         $ps->execute();
@@ -118,10 +118,8 @@ class Db{
         $user = $ps->fetch();
 
         if (password_verify($password, $user->password)) {
-
             return $user;
-        }
-        else {
+        } else{
             return false;
         }
 
@@ -146,6 +144,14 @@ class Db{
         return $ps->execute();
     }
 
+    public static function get_members()
+    {
+        $query = "SELECT * FROM members";
+        $ps = Db::getInstance()->_db->prepare($query);
+        $ps->execute();
+        return $ps->fetchAll();
+    }
+
     public static function select_categories() {
 
         $query = 'SELECT * FROM categories';
@@ -159,6 +165,22 @@ class Db{
         }
         return $table;
 
+    }
+
+    public static function get_question_cat($id) {
+
+        $query = 'SELECT * FROM questions q inner join categories c on c.category_id = q.category_id WHERE c.category_id=:id';
+        $ps = Db::getInstance()->_db->prepare($query);
+        $ps->bindValue(':id', $id, PDO::PARAM_INT);
+        $ps->execute();
+        return $ps->fetchAll();
+    }
+
+    public static function suspend_user($id){
+        $query = "UPDATE members SET is_active = '0' WHERE member_id=:id";
+        $ps = Db::getInstance()->_db->prepare($query);
+        $ps->bindValue(':id', $id, PDO::PARAM_INT);
+        $ps->execute();
     }
 }
 ?>

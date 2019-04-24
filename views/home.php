@@ -12,8 +12,19 @@
         </div>
 
     </div>
-    </br>
 
+    <div>
+        Categories :
+        <?php
+        foreach ($categories as $category) {
+            ?>
+            <a href="index.php?action=category&catid=<?php echo "{$category->getCategoryId()}" ?>"><?php echo "{$category->getName()}"." "; ?></a>
+            <?php
+        }
+        ?>
+    </div>
+
+    </br>
     <table class="table table-striped">
 
         <thead>

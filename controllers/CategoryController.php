@@ -8,14 +8,17 @@
 
 class CategoryController
 {
+    private $_db;
 
-    public function __construct()
+    public function __construct($db)
     {
-
+        $this->_db = $db;
     }
 
     public function run()
     {
+        $tab_question_cat=$this->_db->get_question_cat($_GET['catid']);
+
         require_once(PATH_VIEWS . 'category.php');
     }
 }

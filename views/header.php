@@ -21,15 +21,20 @@
 
 
         <ul>
+            <?php
+            if(isset($_SESSION['member']) and $_SESSION['member']) {
+                echo "<li>Hello " . $_SESSION['member']->first_name . '!</li>';
+            }
+            ?>
+
             <li><a href="index.php">Home</a></li>
             <li><a href="index.php?action=insert-question">Ask question</a></li>
 
             <?php
                 if(isset($_SESSION['member']) and $_SESSION['member']) {
-                    echo "<li>Hello " . $_SESSION['member']->first_name . '!</li>';
-
                     if ($_SESSION['member']->is_admin == '1') {
                         echo '<li><a href="index.php?action=admin">Admin zone</a></li>';
+                        echo '<li><a href="index.php?action=member">List of members</a></li>';
                     }
 
                     echo '<li><a href="index.php?action=logout">Logout</a></li>';
