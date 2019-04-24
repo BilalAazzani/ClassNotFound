@@ -19,7 +19,6 @@ class QuestionController
     public function run(){
 
         switch ($this->action) {
-            case 'showform' : $this->showform(); break;
             case 'show': $this->show(); break;
             case 'create': $this->create(); break;
             // case 'update': $this->update(); break;
@@ -27,12 +26,6 @@ class QuestionController
             default: break;
         }
 
-    }
-
-    public function showform() {
-        $categories = $this->_db->select_categories();
-
-        require_once (PATH_VIEWS . 'question.php');
     }
 
     public function show() {

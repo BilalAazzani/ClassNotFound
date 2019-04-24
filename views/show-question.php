@@ -3,6 +3,7 @@
         <div class="col-12">
             <h1 class="text-center"><?php echo $question->title ?></h1>
             <i class="fa fa-user"></i> <?php echo $question->first_name . ' ' . $question->last_name; ?>
+            <p><small> <i class="fa fa-calendar"></i> <?php echo date_format(date_create($question->creation_date), 'd/m/Y H:i:s') ?></small></p>
 
             <div>
                 <?php echo $question->subject  ?>

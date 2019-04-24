@@ -22,7 +22,7 @@
 
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="index.php?action=question">Ask question</a></li>
+            <li><a href="index.php?action=insert-question">Ask question</a></li>
 
             <?php
                 if(isset($_SESSION['member']) and $_SESSION['member']) {

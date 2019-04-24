@@ -52,10 +52,6 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'MemberController.php');
         $controller = new MemberController();
         break;
-    case 'question': # show the form
-        require_once(PATH_CONTROLLERS.'QuestionController.php');
-        $controller = new QuestionController($db, 'showform');
-        break;
     case 'insert-question': # insert when the form is completed
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db, 'create');
