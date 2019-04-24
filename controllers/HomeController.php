@@ -29,6 +29,7 @@ class HomeController
 
        //$tabquestions=$this->_db->select_question();
 
+        $categories = $this->_db->select_categories();
         require_once(PATH_VIEWS . 'home.php');
     }
 

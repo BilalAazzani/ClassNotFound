@@ -36,8 +36,7 @@ nav a:hover {
 body {
     background-color: grey;
 }
-
-
+/*
 .search {
     width: 130px;
     -webkit-transition: width 0.4s ease-in-out;
@@ -48,7 +47,7 @@ body {
 input[type=text]:focus {
     width: 100%;
 }
-
+*/
 .content {
     background:beige;
 }
