@@ -4,7 +4,7 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 /* header */
@@ -62,7 +62,7 @@ th {
 
 
 /*Footer*/
-footer {
+#footer {
     background-color: aliceblue;
     padding: 15px 20px;
     position:absolute;
@@ -70,5 +70,4 @@ footer {
     width:100%;
     height:60px;   /* Height of the footer */
 }
-
 
