@@ -54,4 +54,3 @@
 
 </div>
 <!-- Material form register -->
-<div class="foot"><a href="<?php echo $url_home; ?>">Retour &agrave; l'accueil</a>

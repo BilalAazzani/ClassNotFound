@@ -30,6 +30,4 @@
         ?>
     </div>
 </section>
-<div class="foot"><a href="index.php">Retour &agrave; l'accueil</a>
-
 

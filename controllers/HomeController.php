@@ -17,8 +17,17 @@ class HomeController
 
     public function run(){
 
+        $html_keyword='';
 
-        $tabquestions=$this->_db->select_question();
+        if (!empty($_POST['form_search'])
+            && !empty($_POST['keyword'])) {
+            $tabquestions=$this->_db->select_question($_POST['keyword']);
+            $html_keyword=htmlspecialchars($_POST['keyword']); # XSS protection
+        } else {
+            $tabquestions=$this->_db->select_question();
+        }
+
+       //$tabquestions=$this->_db->select_question();
 
         require_once(PATH_VIEWS . 'home.php');
     }

@@ -5,9 +5,9 @@
     <div class="form">
 
         <div id="search">
-            <form action="">
-                <input type="text" name="search" placeholder="Search..">
-                <input class="bouton" type="button" value="Search " />
+            <form action="index.php" method="post">
+                Search for a question: <input type="text" name="keyword" value="<?php echo $html_keyword ?>" placeholder="Search.."/>
+                <input type="submit" name="form_search" value="Search">
             </form>
         </div>
 
