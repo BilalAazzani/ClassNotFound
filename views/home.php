@@ -11,19 +11,6 @@
             </form>
         </div>
 
-
-
-        <div>
-            Categories :
-            <?php
-            foreach ($categories as $category) {
-                ?>
-                <a href="index.php"><?php echo "{$category->getName()}"." "; ?></a>
-                <?php
-            }
-            ?>
-        </div>
-
     </div>
     </br>
 

@@ -31,7 +31,7 @@ class Db{
     public static function select_question($keyword=''){
         if ($keyword != '') {
             $keyword = str_replace("%", "\%", $keyword);
-            $query = "SELECT * FROM questions q inner join categories c on c.category_id = q.category_id WHERE title OR subject LIKE :keyword COLLATE utf8_bin";
+            $query = "SELECT * FROM questions q inner join categories c on c.category_id = q.category_id WHERE title LIKE '%$keyword%' OR subject LIKE '%$keyword%' COLLATE utf8_bin";
             $ps = Db::getInstance()->_db->prepare($query);
             $ps->bindValue(':keyword',"%$keyword%");
         } else {
@@ -48,7 +48,6 @@ class Db{
         return $table;
 
     }
-
 
     public static function get_question($id){
 
