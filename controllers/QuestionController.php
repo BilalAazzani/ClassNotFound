@@ -22,7 +22,7 @@ class QuestionController
             case 'show': $this->show(); break;
             case 'create': $this->create(); break;
             case 'insert-answer' : $this->insert_answer(); break;
-            // case 'update': $this->update(); break;
+            case 'update-question': $this->update_question(); break;
             // case 'delete': $this->delete(); break;
             default: break;
         }
@@ -62,6 +62,20 @@ class QuestionController
         }
 
         require_once(PATH_VIEWS . 'showquestion.php');
+    }
+
+    public function update_question()
+    {
+        $vueupdate = false;
+
+        if (isset($_POST['form_update_question'])) {
+            if (!empty($_POST['subject_update'])) {
+                $this->_db->update_question($_POST['subject_update'], $_POST['question_id_update']);
+                header("Location: index.php?action=show-question&id=".$_POST['question_id_update']);
+            }
+        }
+        require_once (PATH_VIEWS . 'show-question.php');
+
     }
 }
 ?>

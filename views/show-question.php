@@ -1,7 +1,23 @@
+
+
 <section class="content">
     <div class="row">
         <div class="col-12">
             <h1 class="text-center"><?php echo $question->title ?></h1>
+
+            <?php if($_SESSION['member']->member_id == $question->member_id ) {?>
+
+            <form action="index.php?action=update-question" method="post">
+                <div class="form-group">
+                    <textarea name="subject_update" class="form-control" id="subject" rows="2" placeholder="Update your answer"></textarea>
+                </div>
+                <input type="hidden" name="question_id_update" value="<?php echo $question->question_id ?>">
+
+                <button type="submit" name="form_update_question" class="btn btn-success"><i class="fa fa-plus"></i>Update</button>
+            </form>
+
+            <?php } ?>
+
             <i class="fa fa-user"></i> <?php echo $question->first_name . ' ' . $question->last_name; ?>
             <p><small> <i class="fa fa-calendar"></i> <?php echo date_format(date_create($question->creation_date), 'd/m/Y H:i:s') ?></small></p>
 

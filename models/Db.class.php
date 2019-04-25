@@ -212,5 +212,15 @@ class Db{
         $ps->bindValue(':member_id',$member_id);
         return $ps->execute();
     }
+
+    public function update_question($subject,$id) {
+        $query = 'UPDATE questions SET subject=:subject WHERE member_id=:id  ';
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':subject',$subject);
+        $ps->bindValue(':id',$id);
+
+        return $ps->execute();
+    }
+
 }
 ?>

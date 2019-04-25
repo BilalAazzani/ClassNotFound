@@ -18,6 +18,8 @@ class MemberController
 
     public function run()
     {
+
+        
         #If not Admin cannot access the page
         if (empty($_SESSION['authenticated']) or $_SESSION['member']->is_admin != '1') {
             header("Location: index.php?action=home");
