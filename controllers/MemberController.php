@@ -26,17 +26,11 @@ class MemberController
 
         if(!empty($_POST['form_suspend'])){
             $this->_db->suspend_user($_POST['form_suspend']);
-        }
-
-        if(!empty($_POST['form_unsuspend'])){
+        }elseif(!empty($_POST['form_unsuspend'])){
             $this->_db->unsuspend_user($_POST['form_unsuspend']);
-        }
-
-        if(!empty($_POST['form_make_admin'])){
+        } elseif(!empty($_POST['form_make_admin'])){
             $this->_db->make_admin($_POST['form_make_admin']);
-        }
-
-        if(!empty($_POST['form_make_member'])){
+        } elseif(!empty($_POST['form_make_member'])){
             $this->_db->make_member($_POST['form_make_member']);
         }
 
