@@ -31,18 +31,28 @@
         ?>
     </div>
 
-    <div>
-        <form action="index.php?action=insert-answer" method="post">
-            <div class="form-group">
-                <textarea name="subject" class="form-control" id="subject" rows="2" placeholder="Write your answer"></textarea>
-            </div>
-            <input type="hidden" name="question_id" value="<?php echo $question->question_id ?>">
+    <?php if(empty($_SESSION['authenticated'])){ ?>
+        <p align="center">You must be logged in to answer</p>
+        <p align="center">
+            <a href="index.php?action=login">Log in</a>
+            or
+            <a href="index.php?action=register">Register</a>
+        </p>
 
-            <p class="text-center">
-                <button type="submit" name="form_insert_answer" class="btn btn-success"><i class="fa fa-plus"></i>Answer</button>
-            </p>
-        </form>
-    </div>
+    <?php }else { ?>
+        <div>
+            <form action="index.php?action=insert-answer" method="post">
+                <div class="form-group">
+                    <textarea name="subject" class="form-control" id="subject" rows="2" placeholder="Write your answer"></textarea>
+                </div>
+                <input type="hidden" name="question_id" value="<?php echo $question->question_id ?>">
+                <p class="text-center">
+                    <button type="submit" name="form_insert_answer" class="btn btn-success"><i class="fa fa-plus"></i>Answer</button>
+                </p>
+            </form>
+        </div>
+    <?php } ?>
+
+
 
 </section>
-
