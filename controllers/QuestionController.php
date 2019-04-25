@@ -37,10 +37,7 @@ class QuestionController
     }
 
     public function create(){
-        if (empty($_SESSION['authenticated'])) {
-            header("Location: index.php?action=home");
-            die();
-        }
+
 
         if (isset($_POST['form_create_question'])) {
             $id_inserted_question = $this->_db->insert_question(

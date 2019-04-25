@@ -183,6 +183,27 @@ class Db{
         $ps->execute();
     }
 
+    public static function unsuspend_user($id){
+        $query = "UPDATE members SET is_active = '1' WHERE member_id=:id";
+        $ps = Db::getInstance()->_db->prepare($query);
+        $ps->bindValue(':id', $id, PDO::PARAM_INT);
+        $ps->execute();
+    }
+
+    public static function make_admin($id){
+        $query = "UPDATE members SET is_admin = '1' WHERE member_id=:id";
+        $ps = Db::getInstance()->_db->prepare($query);
+        $ps->bindValue(':id', $id, PDO::PARAM_INT);
+        $ps->execute();
+    }
+
+    public static function make_member($id){
+        $query = "UPDATE members SET is_admin = '0' WHERE member_id=:id";
+        $ps = Db::getInstance()->_db->prepare($query);
+        $ps->bindValue(':id', $id, PDO::PARAM_INT);
+        $ps->execute();
+    }
+
     public function insert_answer($subject,$question_id,$member_id) {
         $query = 'INSERT INTO answers (subject, question_id, member_id) values (:subject,:question_id,:member_id)';
         $ps = $this->_db->prepare($query);

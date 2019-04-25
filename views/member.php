@@ -8,6 +8,7 @@
             <th> <scope="col">Last name</th>
             <th> <scope="col">Email</th>
             <th> <scope="col">Admin</th>
+            <th> <scope="col">Make admin</th>
             <th> <scope="col">Active</th>
             <th> <scope="col">Suspend</th>
         </tr>
@@ -25,6 +26,17 @@
                         echo "no";
                     }
                     ?>
+                </td>
+                <td>
+                    <?php if ($tabmembers[$i]->is_admin == 0) {?>
+                    <form action="index.php?action=member" method="post">
+                        <button type="submit" name="form_make_admin" value="<?php echo $tabmembers[$i]->member_id ?>">Make admin</button>
+                    </form>
+                    <?php }else{ ?>
+                        <form action="index.php?action=member" method="post">
+                            <button type="submit" name="form_make_member" value="<?php echo $tabmembers[$i]->member_id ?>">Make member</button>
+                        </form>
+                    <?php }?>
                 </td>
                 <td>
                     <?php
