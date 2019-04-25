@@ -55,6 +55,10 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db, 'create');
         break;
+    case 'insert-answer': # insert when the form is completed
+        require_once(PATH_CONTROLLERS.'QuestionController.php');
+        $controller = new QuestionController($db,'insert-answer');
+        break;
     case 'register': # action=register
         require_once(PATH_CONTROLLERS.'RegisterController.php');
         $controller = new RegisterController($db);

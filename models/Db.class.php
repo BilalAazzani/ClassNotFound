@@ -182,5 +182,14 @@ class Db{
         $ps->bindValue(':id', $id, PDO::PARAM_INT);
         $ps->execute();
     }
+
+    public function insert_answer($subject,$question_id,$member_id) {
+        $query = 'INSERT INTO answers (subject, question_id, member_id) values (:subject,:question_id,:member_id)';
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':subject',$subject);
+        $ps->bindValue(':question_id',$question_id);
+        $ps->bindValue(':member_id',$member_id);
+        return $ps->execute();
+    }
 }
 ?>

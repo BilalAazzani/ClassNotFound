@@ -21,6 +21,7 @@ class QuestionController
         switch ($this->action) {
             case 'show': $this->show(); break;
             case 'create': $this->create(); break;
+            case 'insert-answer' : $this->insert_answer(); break;
             // case 'update': $this->update(); break;
             // case 'delete': $this->delete(); break;
             default: break;
@@ -54,6 +55,16 @@ class QuestionController
         }
         $categories = $this->_db->select_categories();
         require_once (PATH_VIEWS . 'question.php');
+    }
+
+    public function insert_answer(){
+        if(isset($_POST['form_insert_answer'])){
+            $this->_db->insert_answer($_POST['subject'],$_POST['question_id'],$_SESSION['member']->member_id);
+
+            header("Location: index.php?action=show-question&id=".$_POST['question_id']);
+        }
+
+        require_once(PATH_VIEWS . 'showquestion.php');
     }
 }
 ?>
