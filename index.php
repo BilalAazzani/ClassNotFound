@@ -63,6 +63,10 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'update-question');
         break;
+    case 'vote': #vote
+        require_once(PATH_CONTROLLERS.'QuestionController.php');
+        $controller = new QuestionController($db,'vote');
+        break;
     case 'register': # action=register
         require_once(PATH_CONTROLLERS.'RegisterController.php');
         $controller = new RegisterController($db);

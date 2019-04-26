@@ -43,9 +43,11 @@
             <div class="col-8 alert alert-info ">
                 <?php echo $answer->subject; ?>
                 <div class="vote">
-                    <button class="btn btn-success"><i class="fa fa-plus"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-minus"></i></button>
-
+                    <form action="index.php?action=vote" method="post">
+                        <button type="submit" name="vote" value="p" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        <button type="submit" name="vote" value="n" class="btn btn-danger"><i class="fa fa-minus"></i></button>
+                        <input type="hidden" value=""<?php echo $answer->answer_id ?>"">
+                    </form>
                 </div>
 
             </div>

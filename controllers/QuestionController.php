@@ -23,6 +23,8 @@ class QuestionController
             case 'create': $this->create(); break;
             case 'insert-answer' : $this->insert_answer(); break;
             case 'update-question': $this->update_question(); break;
+            case 'vote-plus': $this ->vote_plus(); break;
+            case 'vote-minus': $this ->vote_minus(); break;
             // case 'delete': $this->delete(); break;
             default: break;
         }
@@ -74,6 +76,16 @@ class QuestionController
                 header("Location: index.php?action=show-question&id=".$_POST['question_id_update']);
             }
         }
+        require_once (PATH_VIEWS . 'show-question.php');
+
+    }
+
+    public function vote(){
+        if (isset($_POST['form_vote_plus'])) {
+                $this->_db->vote_plus($_SESSION['member_id'] -> member_id, $_POST['']);
+                header("Location: index.php?action=show-question&id=".$_POST['question_id_update']);
+            }
+
         require_once (PATH_VIEWS . 'show-question.php');
 
     }
