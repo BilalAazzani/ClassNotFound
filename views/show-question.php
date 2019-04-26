@@ -5,18 +5,20 @@
         <div class="col-12">
             <h1 class="text-center"><?php echo $question->title ?></h1>
 
-                <?php if($_SESSION['member']->member_id == $question->member_id ) {?>
+            <?php
+            if(isset($_SESSION['member']) and $_SESSION['member']){
+                if($_SESSION['member']->member_id == $question->member_id ) {?>
 
-            <form action="index.php?action=update-question" method="post">
-                <div class="form-group">
-                    <textarea name="subject_update" class="form-control" id="subject" rows="2" placeholder="Update your question"></textarea>
-                </div>
-                <input type="hidden" name="question_id_update" value="<?php echo $question->question_id ?>">
+                    <form action="index.php?action=update-question" method="post">
+                        <div class="form-group">
+                            <textarea name="subject_update" class="form-control" id="subject" rows="2" placeholder="Update your question"></textarea>
+                        </div>
+                        <input type="hidden" name="question_id_update" value="<?php echo $question->question_id ?>">
 
-                <button type="submit" name="form_update_question" class="btn btn-success"><i class="fa fa-plus"></i>Update</button>
-            </form>
+                        <button type="submit" name="form_update_question" class="btn btn-primary"><i class="fa fa-plus"></i>Update</button>
+                    </form>
 
-            <?php } ?>
+                <?php } } ?>
 
             <i class="fa fa-user"></i> <?php echo $question->first_name . ' ' . $question->last_name; ?>
             <p><small> <i class="fa fa-calendar"></i> <?php echo date_format(date_create($question->creation_date), 'd/m/Y H:i:s') ?></small></p>
@@ -41,8 +43,8 @@
             <div class="col-8 alert alert-info ">
                 <?php echo $answer->subject; ?>
                 <div class="vote">
-                    <button><i class="fa fa-plus"></i></button>
-                    <button><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-success"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-minus"></i></button>
 
                 </div>
 
@@ -69,7 +71,7 @@
                 </div>
                 <input type="hidden" name="question_id" value="<?php echo $question->question_id ?>">
                 <p class="text-center">
-                    <button type="submit" name="form_insert_answer" class="btn btn-success"><i class="fa fa-plus"></i>Answer</button>
+                    <button type="submit" name="form_insert_answer" class="btn btn-primary"><i class="fa fa-plus"></i>Answer</button>
                 </p>
             </form>
         </div>
