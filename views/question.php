@@ -28,9 +28,20 @@
                     <textarea class="form-control" name="subject" id="subject" rows="3" placeholder="Explain your question"></textarea>
                 </div>
 
-                <p class="text-center">
-                    <button type="submit" name='form_create_question' class="btn btn-success"><i class="fa fa-plus"></i> Create question</button>
-                </p>
+                <?php if(empty($_SESSION['authenticated'])){ ?>
+                    <p align="center">You must be logged in to create your question</p>
+                    <p align="center">
+                        <a href="index.php?action=login">Log in</a>
+                        or
+                        <a href="index.php?action=register">Register</a>
+                    </p>
+
+                <?php }else { ?>
+
+                    <p class="text-center">
+                        <button type="submit" name='form_create_question' class="btn btn-primary"><i class="fa fa-plus"></i> Create question</button>
+                    </p>
+                <?php }?>
             </form>
         </div>
     </div>
