@@ -5,7 +5,7 @@
         <div class="col-12">
             <h1 class="text-center"><?php echo $question->title ?></h1>
 
-            <?php if($_SESSION['member']->member_id == $question->member_id ) {?>
+                <?php if($_SESSION['member']->member_id == $question->member_id ) {?>
 
             <form action="index.php?action=update-question" method="post">
                 <div class="form-group">
