@@ -9,7 +9,7 @@
 
             <form action="index.php?action=update-question" method="post">
                 <div class="form-group">
-                    <textarea name="subject_update" class="form-control" id="subject" rows="2" placeholder="Update your answer"></textarea>
+                    <textarea name="subject_update" class="form-control" id="subject" rows="2" placeholder="Update your question"></textarea>
                 </div>
                 <input type="hidden" name="question_id_update" value="<?php echo $question->question_id ?>">
 
@@ -40,6 +40,12 @@
 
             <div class="col-8 alert alert-info ">
                 <?php echo $answer->subject; ?>
+                <div class="vote">
+                    <button><i class="fa fa-plus"></i></button>
+                    <button><i class="fa fa-minus"></i></button>
+
+                </div>
+
             </div>
 
             <?php

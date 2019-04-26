@@ -70,6 +70,9 @@ th {
     border: 1px solid black;
 }
 
+.vote{
+    float: right;
+}
 
 /*Footer*/
 #footer {
