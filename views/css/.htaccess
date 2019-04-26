@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Password Required"
+AuthUserFile \wamp64\www\projetphp\views\css\.htpasswd
+Require valid-user
+RewriteEngine On
