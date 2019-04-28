@@ -241,17 +241,14 @@ class Db
         return $ps->execute();
     }
 
-    public function vote($member_id, $answer_id, $value)
+    public function vote($member_id, $answer_id, $vote_value)
     {
-
-        $query = 'UPDATE votes SET value=:value 
-                  WHERE member_id=:member_id AND answer_id=:answer_id ';
+        $query = 'INSERT INTO votes (member_id, answer_id, vote_value) values (:member_id, :answser_id, :vote_value)';
         $ps = $this->_db->prepare($query);
-        $ps->bindValue(':answer_id', $answer_id);
         $ps->bindValue(':member_id', $member_id);
-        $ps->bindValue(':value', $value);
+        $ps->bindValue(':answer_id', $answer_id);
+        $ps->bindValue(':vote_value', $vote_value);
         return $ps->execute();
-
     }
 }
 ?>

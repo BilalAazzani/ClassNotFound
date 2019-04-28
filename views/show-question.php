@@ -1,10 +1,9 @@
-
-
 <section class="content">
     <div class="row">
         <div class="col-12">
             <h1 class="text-center"><?php echo $question->title ?></h1>
 
+            <!--- Update question area -->
             <?php
             if(isset($_SESSION['member']) and $_SESSION['member']){
                 if($_SESSION['member']->member_id == $question->member_id ) {?>
@@ -20,6 +19,7 @@
 
                 <?php } } ?>
 
+            <!--- Question subject area -->
             <i class="fa fa-user"></i> <?php echo $question->first_name . ' ' . $question->last_name; ?>
             <p><small> <i class="fa fa-calendar"></i> <?php echo date_format(date_create($question->creation_date), 'd/m/Y H:i:s') ?></small></p>
 
@@ -30,9 +30,9 @@
         </div>
     </div>
 
+    <!--- Answers area -->
     <div class="row">
         <?php
-
         foreach ($answers as $answer) {
             ?>
             <div class="col-4">
@@ -42,11 +42,14 @@
 
             <div class="col-8 alert alert-info ">
                 <?php echo $answer->subject; ?>
+
+                <!--- Votes -->
                 <div class="vote">
                     <form action="index.php?action=vote" method="post">
-                        <button type="submit" name="vote" value="p" class="btn btn-success"><i class="fa fa-plus"></i></button>
-                        <button type="submit" name="vote" value="n" class="btn btn-danger"><i class="fa fa-minus"></i></button>
-                        <input type="hidden" value=""<?php echo $answer->answer_id ?>"">
+                        <button type="submit" name="form_vote" value="p" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        <button type="submit" name="form_vote" value="n" class="btn btn-danger"><i class="fa fa-minus"></i></button>
+                        <input type="hidden" value="<?php echo $answer->answer_id ?>" name="answer_id">
+                        <input type="hidden" name="question_id_update" value="<?php echo $question->question_id ?>">
                     </form>
                 </div>
 
@@ -57,6 +60,7 @@
         ?>
     </div>
 
+    <!--- Add an answer area -->
     <?php if(empty($_SESSION['authenticated'])){ ?>
         <p align="center">You must be logged in to answer</p>
         <p align="center">
