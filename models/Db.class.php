@@ -252,7 +252,7 @@ class Db
     }
 
     public function mark_duplicate($id){
-        $query = 'UPDATE `database`.`questions` t SET t.`state` = \'D\' WHERE t.`question_id` = 12';
+        $query = "UPDATE questions SET state='D' WHERE member_id=:id";
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':id', $id);
         return $ps->execute();
