@@ -250,5 +250,12 @@ class Db
         $ps->bindValue(':vote_value', $vote_value);
         return $ps->execute();
     }
+
+    public function mark_duplicate($id){
+        $query = 'UPDATE `database`.`questions` t SET t.`state` = \'D\' WHERE t.`question_id` = 12';
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':id', $id);
+        return $ps->execute();
+    }
 }
 ?>

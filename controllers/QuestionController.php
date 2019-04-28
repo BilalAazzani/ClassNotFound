@@ -38,18 +38,23 @@ class QuestionController
     }
 
     public function create(){
-
+        $notification = '';
 
         if (isset($_POST['form_create_question'])) {
-            $id_inserted_question = $this->_db->insert_question(
-                $_POST['title'],
-                $_POST['subject'],
-                $_POST['category'],
-                $_SESSION['member']->member_id
-            );
-            if ($id_inserted_question) {
-                header("Location: index.php?action=show-question&id=" . $id_inserted_question);
-            }
+            if (empty($_SESSION['authenticated'])) {
+                $notification='You must be logged in to ask a question';
+            }else{
+                $id_inserted_question = $this->_db->insert_question(
+                    $_POST['title'],
+                    $_POST['subject'],
+                    $_POST['category'],
+                    $_SESSION['member']->member_id
+                );
+                if ($id_inserted_question) {
+                    header("Location: index.php?action=show-question&id=" . $id_inserted_question);
+                }}
+
+
         }
         $categories = $this->_db->select_categories();
         require_once (PATH_VIEWS . 'question.php');
