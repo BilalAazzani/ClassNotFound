@@ -8,32 +8,16 @@
 
 Class Vote
 {
-    private $answer_id;
-    private $_value;
     private $_member_id;
+    private $_answer_id;
+    private $_vote_value;
 
-    public function __construct($answer_id, $value, $member_id)
+    public function __construct($member_id, $answer_id, $vote_value)
     {
-        $this-> answer_id = $answer_id;
-        $this->_value = $value;
         $this->_member_id = $member_id;
+        $this->_answer_id = $answer_id;
+        $this->_vote_value = $vote_value;
 
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAnswerId()
-    {
-        return $this->answer_id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->_value;
     }
 
     /**
@@ -43,6 +27,24 @@ Class Vote
     {
         return $this->_member_id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAnswerId()
+    {
+        return $this->_answer_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVoteValue()
+    {
+        return $this->_vote_value;
+    }
+
+
 
 }
 ?>
