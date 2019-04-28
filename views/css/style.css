@@ -49,6 +49,9 @@ input[type=text]:focus {
     width: 100%;
 }
 */
+.notification{
+    color: red;
+}
 .content {
     background:beige;
 

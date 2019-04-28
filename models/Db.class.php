@@ -117,7 +117,7 @@ class Db
 
     public function validate_member($email, $password)
     {
-        $query = 'SELECT * from members WHERE email=:email AND is_active=1';
+        $query = 'SELECT * from members WHERE email=:email';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':email', $email);
         $ps->execute();
