@@ -84,6 +84,7 @@ switch ($_GET['action']) {
         $controller = new HomeController($db);
         break;
 }
+//TODO duplicate question
 
 $controller->run();
 

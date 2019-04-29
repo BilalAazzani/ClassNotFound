@@ -30,11 +30,16 @@
         <thead>
             <tr>
                 <th width="840"> <scope="col"> Question</th>
-                <th width="330"> <scope="col">Category</th>
+                <th width="200"> <scope="col">Category</th>
                 <?php
                 if(isset($_SESSION['member']) and $_SESSION['member']){
                     if($_SESSION['member']->is_admin == 1 ) {?>
-                        <th width="330"> <scope="col">Delete</th>
+                        <th width="150"> <scope="col">Delete</th>
+                    <?php } }?>
+                <?php
+                if(isset($_SESSION['member']) and $_SESSION['member']){
+                    if($_SESSION['member']->is_admin == 1 ) {?>
+                        <th width="150"> <scope="col">Duplicate</th>
                     <?php } }?>
             </tr>
         </thead>
@@ -56,6 +61,18 @@
                             <form action="index.php?action=delete-question" method="post">
                                 <button type="submit" name="form_delete_question" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 <input type="hidden" name="question_id_delete" value="<?php $tabquestions[$i]->getId() ?>">
+                            </form>
+                        </td>
+                    <?php } }?>
+
+                <!--- Duplicate question -->
+                <?php
+                if(isset($_SESSION['member']) and $_SESSION['member']){
+                    if($_SESSION['member']->is_admin == 1 ) {?>
+                        <td>
+                            <form action="index.php?action=duplicate-question" method="post">
+                                <button type="submit" name="form_duplicate_question" class="btn btn-secondary"><i class="fa fa-copy"></i></button>
+                                <input type="hidden" name="question_id_duplicate" value="<?php $tabquestions[$i]->getId() ?>">
                             </form>
                         </td>
                     <?php } }?>
