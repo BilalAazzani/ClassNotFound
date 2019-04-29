@@ -1,5 +1,5 @@
 <section class="content">
-    <h2>All the Questions </h2>
+    <h2 align="center">All the Questions </h2>
     </br>
 
     <!--- Search bar -->

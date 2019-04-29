@@ -1,5 +1,5 @@
 <div class="content">
-    <h2>All the related Questions</h2>
+    <h2 align="center">All the related Questions</h2>
 
     <div>
         Categories :
