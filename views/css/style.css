@@ -57,7 +57,6 @@ input[type=text]:focus {
 
     position:relative; /* needed for footer positioning*/
     margin:0 auto; /* center, not in IE5 */
-    margin-bottom: 60px;
 
     height:auto !important; /* real browsers */
     height:100%; /* IE6: treaded as min-height*/

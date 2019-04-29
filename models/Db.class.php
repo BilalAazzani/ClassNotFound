@@ -186,7 +186,6 @@ class Db
 
     public static function get_question_cat($id)
     {
-
         $query = 'SELECT * FROM questions q inner join categories c on c.category_id = q.category_id WHERE c.category_id=:id';
         $ps = Db::getInstance()->_db->prepare($query);
         $ps->bindValue(':id', $id, PDO::PARAM_INT);
@@ -264,7 +263,7 @@ class Db
     }
 
     public function delete_question($id){
-        $query = "DELETE FROM questions q WHERE q.question_id=:id";
+        $query = "DELETE FROM questions WHERE question_id=:id";
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':id', $id);
         return $ps->execute();
