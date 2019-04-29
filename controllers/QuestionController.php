@@ -24,8 +24,8 @@ class QuestionController
             case 'insert-answer' : $this->insert_answer(); break;
             case 'update-question': $this->update_question(); break;
             case 'vote': $this ->vote(); break;
+            case 'delete-question': $this->delete(); break;
             //case 'duplicate': $this ->duplicate(); break;
-            // case 'delete': $this->delete(); break;
             default: break;
         }
 
@@ -85,11 +85,18 @@ class QuestionController
 
     public function vote(){
         if (isset($_POST['form_vote'])) {
-                $this->_db->vote($_SESSION['member'] -> member_id, $_POST['answer_id'], 'p');
+                $this->_db->vote($_SESSION['member'] -> member_id, $_POST['answer_id'], $_POST['form_vote']);
                 header("Location: index.php?action=show-question&id=".$_POST['question_id_vote']);
             }
         require_once (PATH_VIEWS . 'show-question.php');
+    }
 
+    public function delete(){
+        if(isset($_POST['form_delete_question'])){
+            $this->_db->delete_question($_POST['question_id_delete']);
+            header("Location: index.php?action=home");
+        }
+        require_once(PATH_VIEWS . 'home.php');
     }
 }
 ?>

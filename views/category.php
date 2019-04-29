@@ -1,8 +1,19 @@
 <div class="content">
-    <h2><?php echo "" ?></h2>
+    <h2>All the related Questions</h2>
+
+    <div>
+        Categories :
+        <?php
+        foreach ($categories as $category) {
+            ?>
+            <a href="index.php?action=category&catid=<?php echo "{$category->getCategoryId()}" ?>"><?php echo "{$category->getName()}"." "; ?></a>
+            <?php
+        }
+        ?>
+    </div>
+    </br>
 
     <table class="table table-striped">
-
         <thead>
         <tr>
             <th width="840"> <scope="col">Question</th>
