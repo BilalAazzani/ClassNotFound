@@ -24,6 +24,7 @@ class QuestionController
             case 'insert-answer' : $this->insert_answer(); break;
             case 'update-question': $this->update_question(); break;
             case 'vote': $this ->vote(); break;
+            //case 'duplicate': $this ->duplicate(); break;
             // case 'delete': $this->delete(); break;
             default: break;
         }
@@ -72,8 +73,6 @@ class QuestionController
 
     public function update_question()
     {
-        $vueupdate = false;
-
         if (isset($_POST['form_update_question'])) {
             if (!empty($_POST['subject_update'])) {
                 $this->_db->update_question($_POST['subject_update'], $_POST['question_id_update']);
@@ -87,7 +86,7 @@ class QuestionController
     public function vote(){
         if (isset($_POST['form_vote'])) {
                 $this->_db->vote($_SESSION['member'] -> member_id, $_POST['answer_id'], 'p');
-                header("Location: index.php?action=show-question&id=".$_POST['question_id_update']);
+                header("Location: index.php?action=show-question&id=".$_POST['question_id_vote']);
             }
         require_once (PATH_VIEWS . 'show-question.php');
 

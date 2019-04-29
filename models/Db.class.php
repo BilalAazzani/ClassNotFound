@@ -233,11 +233,10 @@ class Db
 
     public function update_question($subject, $id)
     {
-        $query = 'UPDATE questions SET subject=:subject WHERE member_id=:id  ';
+        $query = 'UPDATE questions SET subject=:subject WHERE question_id=:id  ';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':subject', $subject);
         $ps->bindValue(':id', $id);
-
         return $ps->execute();
     }
 
@@ -252,7 +251,14 @@ class Db
     }
 
     public function mark_duplicate($id){
-        $query = "UPDATE questions SET state='D' WHERE member_id=:id";
+        $query = "UPDATE questions SET state='D' WHERE question_id=:id";
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':id', $id);
+        return $ps->execute();
+    }
+
+    public function mark_open($id){
+        $query = "UPDATE questions SET state='O' WHERE question_id=:id";
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':id', $id);
         return $ps->execute();
