@@ -35,6 +35,18 @@ class QuestionController
         $question = Db::get_question($_GET['id']);
         $answers = Db::get_answers($_GET['id']);
 
+        /*$new_answers = new ArrayObject();
+        foreach($answers as $answer){
+            $test = new Answer($answer->answer_id,
+            $answer->subject,
+            $answer->member_id,
+            $answer->creation_date,
+            $answer->question_id
+            );
+
+            $new_answers->append($test);
+        }
+        var_dump($new_answers);*/
         require_once (PATH_VIEWS . 'show-question.php');
     }
 
@@ -85,11 +97,15 @@ class QuestionController
 
     public function vote(){
         if (isset($_POST['form_vote'])) {
-                $this->_db->vote($_SESSION['member'] -> member_id, $_POST['answer_id'], 'p');
+                $this->_db->vote(intval($_SESSION['member']->member_id), intval($_POST['answer_id']), $_POST['form_vote']);
                 header("Location: index.php?action=show-question&id=".$_POST['question_id_vote']);
             }
         require_once (PATH_VIEWS . 'show-question.php');
 
     }
+
+    public function getTotalVote(){
+        return TotalVote;
+    }
+
 }
-?>

@@ -66,7 +66,12 @@ class Db
 
     public static function get_answers($question_id)
     {
-        $query = "SELECT * FROM answers inner join members m on m.member_id = answers.member_id WHERE question_id = :question_id ";
+        //$query = "SELECT * FROM answers inner join members m on m.member_id = answers.member_id WHERE question_id = :question_id ";
+        $query = 'select answer.member_id, answer.subject, answer.question_id, answer.creation_date, answer.answer_id, 
+                  m.first_name, m.last_name,
+                  ((select count(*) from votes where vote_value = \'p\' and answer_id = answer.answer_id)-
+                  (select count(*) from votes where vote_value = \'n\' and answer_id = answer.answer_id))  as totalVote 
+                  from answers answer inner join members m on m.member_id = answer.member_id WHERE answer.question_id = :question_id ';
         $ps = Db::getInstance()->_db->prepare($query);
         $ps->bindValue(':question_id', $question_id, PDO::PARAM_INT);
         $ps->execute();
@@ -233,16 +238,17 @@ class Db
 
     public function update_question($subject, $id)
     {
-        $query = 'UPDATE questions SET subject=:subject WHERE question_id=:id  ';
+        $query = 'UPDATE questions SET subject=:subject WHERE question_id=:id ';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':subject', $subject);
         $ps->bindValue(':id', $id);
+
         return $ps->execute();
     }
 
     public function vote($member_id, $answer_id, $vote_value)
     {
-        $query = 'INSERT INTO votes (member_id, answer_id, vote_value) values (:member_id, :answser_id, :vote_value)';
+        $query = 'INSERT INTO votes (member_id, answer_id, vote_value) values (:member_id,:answer_id,:vote_value)';
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':member_id', $member_id);
         $ps->bindValue(':answer_id', $answer_id);
@@ -251,14 +257,7 @@ class Db
     }
 
     public function mark_duplicate($id){
-        $query = "UPDATE questions SET state='D' WHERE question_id=:id";
-        $ps = $this->_db->prepare($query);
-        $ps->bindValue(':id', $id);
-        return $ps->execute();
-    }
-
-    public function mark_open($id){
-        $query = "UPDATE questions SET state='O' WHERE question_id=:id";
+        $query = "UPDATE questions SET state='D' WHERE member_id=:id";
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':id', $id);
         return $ps->execute();
@@ -271,4 +270,3 @@ class Db
         return $ps->execute();
     }
 }
-?>

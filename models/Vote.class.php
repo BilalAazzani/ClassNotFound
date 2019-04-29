@@ -8,32 +8,53 @@
 
 Class Vote
 {
-    private $_member_id;
-    private $_answer_id;
+    private $_member;
+    private $_answer;
     private $_vote_value;
 
-    public function __construct($member_id, $answer_id, $vote_value)
+    /**
+     * Vote constructor.
+     * @param $_member
+     * @param $_answer
+     * @param $_vote_value
+     */
+    public function __construct($_member, $_answer, $_vote_value)
     {
-        $this->_member_id = $member_id;
-        $this->_answer_id = $answer_id;
-        $this->_vote_value = $vote_value;
-
+        $this->_member = $_member;
+        $this->_answer = $_answer;
+        $this->_vote_value = $_vote_value;
     }
 
     /**
      * @return mixed
      */
-    public function getMemberId()
+    public function getMember()
     {
-        return $this->_member_id;
+        return $this->_member;
+    }
+
+    /**
+     * @param mixed $member
+     */
+    public function setMember($member)
+    {
+        $this->_member = $member;
     }
 
     /**
      * @return mixed
      */
-    public function getAnswerId()
+    public function getAnswer()
     {
-        return $this->_answer_id;
+        return $this->_answer;
+    }
+
+    /**
+     * @param mixed $answer
+     */
+    public function setAnswer($answer)
+    {
+        $this->_answer = $answer;
     }
 
     /**
@@ -44,7 +65,13 @@ Class Vote
         return $this->_vote_value;
     }
 
-
+    /**
+     * @param mixed $vote_value
+     */
+    public function setVoteValue($vote_value)
+    {
+        $this->_vote_value = $vote_value;
+    }
 
 }
-?>
+ ?>

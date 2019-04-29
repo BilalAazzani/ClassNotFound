@@ -46,9 +46,15 @@
                 <div class="vote">
                     <form action="index.php?action=vote" method="post">
                         <button type="submit" name="form_vote" value="p" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                        <span>
+                        <?php echo $answer->totalVote ?>
+
+
+                        </span>
                         <button type="submit" name="form_vote" value="n" class="btn btn-danger"><i class="fa fa-minus"></i></button>
                         <input type="hidden" value="<?php echo $answer->answer_id ?>" name="answer_id">
                         <input type="hidden" name="question_id_vote" value="<?php echo $question->question_id ?>">
+
                     </form>
                 </div>
 
