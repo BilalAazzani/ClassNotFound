@@ -50,6 +50,10 @@
                     <a href="index.php?action=show-question&id=<?php echo $tabquestions[$i]->getId() ?>">
                         <span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span>
                     </a>
+                    <div class="solved_msg">
+                        afaz
+                    </div>
+
                 </td>
                 <td><?php echo $tabquestions[$i]->getCatName() ?></td>
 

@@ -49,7 +49,7 @@ input[type=text]:focus {
     width: 100%;
 }
 */
-.form_solved{
+.form_solved .solved_msg{
     float: right;
 }
 
