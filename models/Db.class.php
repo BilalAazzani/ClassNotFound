@@ -269,6 +269,13 @@ class Db
         return $ps->execute();
     }
 
+    public function mark_as_solved ($id){
+        $query ="UPDATE questions SET state = 'S' WHERE question_id=:id";
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':id', $id);
+        return $ps->execute();
+    }
+
     public function delete_question($id){
         $query = "DELETE FROM questions WHERE question_id=:id";
         $ps = $this->_db->prepare($query);

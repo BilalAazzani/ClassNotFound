@@ -67,6 +67,10 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'open-question');
         break;
+    case 'mark-as-solved': #mark as solved
+        require_once(PATH_CONTROLLERS.'QuestionController.php');
+        $controller = new QuestionController($db,'mark-as-solved');
+        break;
     case 'delete-question': #delete question
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'delete-question');

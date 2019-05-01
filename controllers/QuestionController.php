@@ -26,6 +26,7 @@ class QuestionController
             case 'vote': $this ->vote(); break;
             case 'duplicate-question': $this ->duplicate(); break;
             case 'open-question': $this ->open(); break;
+            case 'mark-as-solved': $this ->MarkAsSolved(); break;
             // case 'delete': $this->delete(); break;
             default: break;
         }
@@ -98,9 +99,9 @@ class QuestionController
 
     public function vote(){
         if (isset($_POST['form_vote'])) {
-                $this->_db->vote(intval($_SESSION['member']->member_id), intval($_POST['answer_id']), $_POST['form_vote']);
-                header("Location: index.php?action=show-question&id=".$_POST['question_id_vote']);
-            }
+            $this->_db->vote(intval($_SESSION['member']->member_id), intval($_POST['answer_id']), $_POST['form_vote']);
+            header("Location: index.php?action=show-question&id=".$_POST['question_id_vote']);
+        }
         require_once (PATH_VIEWS . 'show-question.php');
 
     }
@@ -125,6 +126,16 @@ class QuestionController
         }
         require_once (PATH_VIEWS . 'home.php');
 
+    }
+
+    public function MarkAsSolved(){
+
+        if (isset($_POST['form_mark_as_solved'])){
+            $this->_db->mark_as_solved (intval($_POST['question_id_solved']));
+            header("Location: index.php");
+
+
+        }
     }
 
 }

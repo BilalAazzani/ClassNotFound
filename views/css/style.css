@@ -9,8 +9,12 @@ html,body
 
 /* header */
 header {
-    background-color: gray;
+    background-color:grey;
     padding: 10px;
+}
+
+.form_solved{
+    float: right;
 }
 
 header h1 img {
@@ -18,7 +22,6 @@ header h1 img {
     margin: 7px 20px 10px 0;
     height: 110px;
 }
-
 
 li {
     display: inline;

@@ -3,6 +3,8 @@
         <div class="col-12">
             <h1 class="text-center"><?php echo $question->title ?></h1>
 
+
+
             <!--- Update question area -->
             <?php
             if(isset($_SESSION['member']) and $_SESSION['member']){
@@ -14,7 +16,18 @@
                         <input type="hidden" name="question_id_update" value="<?php echo $question->question_id ?>">
 
                         <button type="submit" name="form_update_question" class="btn btn-primary"><i class="fa fa-plus"></i>Update</button>
+
+
                     </form>
+
+
+                    <form action="index.php?action=mark-as-solved" method="post">
+                        <div class="form_solved">
+                        <button type="submit" name ="form_mark_as_solved" value="S" class="btn btn-success"> <i class="fas fa-check"></i>Mark as solved</button>
+                            <input type="hidden" name="question_id_solved" value="<?php echo $question->question_id ?>">
+                        </div>
+                    </form>
+
 
                 <?php } } ?>
 
@@ -23,8 +36,7 @@
             <p><small> <i class="fa fa-calendar"></i> <?php echo date_format(date_create($question->creation_date), 'd/m/Y H:i:s') ?></small></p>
 
             <div>
-                <?php echo $question->subject  ?>
-                <hr>
+
             </div>
         </div>
     </div>
@@ -44,6 +56,7 @@
 
                 <!--- Votes -->
                 <div class="vote">
+
                     <form action="index.php?action=vote" method="post">
                         <button type="submit" name="form_vote" value="p" class="btn btn-success"><i class="fa fa-plus"></i></button>
                         <span>
