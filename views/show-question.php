@@ -48,8 +48,6 @@
                         <button type="submit" name="form_vote" value="p" class="btn btn-success"><i class="fa fa-plus"></i></button>
                         <span>
                         <?php echo $answer->totalVote ?>
-
-
                         </span>
                         <button type="submit" name="form_vote" value="n" class="btn btn-danger"><i class="fa fa-minus"></i></button>
                         <input type="hidden" value="<?php echo $answer->answer_id ?>" name="answer_id">
@@ -73,7 +71,6 @@
             or
             <a href="index.php?action=register">Register</a>
         </p>
-
     <?php }else { ?>
         <div>
             <form action="index.php?action=insert-answer" method="post">
@@ -87,7 +84,4 @@
             </form>
         </div>
     <?php } ?>
-
-
-
 </section>
