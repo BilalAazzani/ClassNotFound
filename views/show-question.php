@@ -20,15 +20,19 @@
 
                     </form>
 
-
-                    <form action="index.php?action=mark-as-solved" method="post">
-                        <div class="form_solved">
-                        <button type="submit" name ="form_mark_as_solved" value="S" class="btn btn-success"> <i class="fas fa-check"></i>Mark as solved</button>
-                            <input type="hidden" name="question_id_solved" value="<?php echo $question->question_id ?>">
-                        </div>
-                    </form>
-
-
+                    <?php if ($question->state=='O'){ ?>
+                        <form action="index.php?action=mark-as-solved" method="post">
+                            <div class="form_solved">
+                                <button type="submit" name ="form_mark_as_solved" value="S" class="btn btn-success"> <i class="fas fa-check"></i>Mark as solved</button>
+                                <input type="hidden" name="question_id_solved" value="<?php echo $question->question_id ?>">
+                            </div>
+                        </form>
+                    <?php }elseif ($question->state=='S'){?>
+                        <form action="index.php?action=open-question" method="post">
+                            <button type="submit" name="form_open_question" value="O" class="btn btn-success"> <i class="fas fa-check"></i>Mark as open</button>
+                            <input type="hidden" name="question_id_open" value="<?php $question->question_id ?>">
+                        </form>
+                    <?php } ?>
                 <?php } } ?>
 
             <!--- Question subject area -->
