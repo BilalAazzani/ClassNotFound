@@ -13,32 +13,29 @@ header {
     padding: 10px;
 }
 
-.form_solved{
-    float: right;
-}
 
 header h1 img {
-    float: left;
-    margin: 7px 20px 10px 0;
-    height: 110px;
+float: left;
+margin: 7px 20px 10px 0;
+height: 110px;
 }
 
 li {
-    display: inline;
-    padding: 8px;
+display: inline;
+padding: 8px;
 }
 
 nav a {
-    color: wheat;
+color: wheat;
 }
 
 nav a:hover {
-    color: whitesmoke;
+color: whitesmoke;
 }
 
 /* body */
 body {
-    background-color: grey;
+background-color: grey;
 }
 /*
 .search {
@@ -52,8 +49,12 @@ input[type=text]:focus {
     width: 100%;
 }
 */
+.form_solved{
+    float: right;
+}
+
 .notification{
-    color: red;
+color: red;
 }
 .content {
     background:beige;

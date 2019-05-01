@@ -115,7 +115,6 @@ class QuestionController
             $this->_db->mark_duplicate(intval($_POST['question_id_duplicate']));
             header("Location: index.php");
         }
-        require_once (PATH_VIEWS . 'home.php');
 
     }
 
@@ -124,7 +123,6 @@ class QuestionController
             $this->_db->mark_open(intval($_POST['question_id_open']));
             header("Location: index.php");
         }
-        require_once (PATH_VIEWS . 'home.php');
 
     }
 
