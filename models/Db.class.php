@@ -258,14 +258,14 @@ class Db
     public function mark_duplicate($id){
         $query = "UPDATE questions SET state='D' WHERE question_id=:id";
         $ps = $this->_db->prepare($query);
-        $ps->bindValue(':id', $id);
+        $ps->bindValue(':id', $id, PDO::PARAM_INT);
         return $ps->execute();
     }
 
     public function mark_open($id){
         $query = "UPDATE questions SET state='O' WHERE question_id=:id";
         $ps = $this->_db->prepare($query);
-        $ps->bindValue(':id', $id);
+        $ps->bindValue(':id', $id, PDO::PARAM_INT);
         return $ps->execute();
     }
 

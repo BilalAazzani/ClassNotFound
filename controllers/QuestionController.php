@@ -24,7 +24,8 @@ class QuestionController
             case 'insert-answer' : $this->insert_answer(); break;
             case 'update-question': $this->update_question(); break;
             case 'vote': $this ->vote(); break;
-            //case 'duplicate': $this ->duplicate(); break;
+            case 'duplicate-question': $this ->duplicate(); break;
+            case 'open-question': $this ->open(); break;
             // case 'delete': $this->delete(); break;
             default: break;
         }
@@ -106,6 +107,24 @@ class QuestionController
 
     public function getTotalVote(){
         return TotalVote;
+    }
+
+    public function duplicate(){
+        if (isset($_POST['form_duplicate_question'])) {
+            $this->_db->mark_duplicate(intval($_POST['question_id_duplicate']));
+            header("Location: index.php");
+        }
+        require_once (PATH_VIEWS . 'home.php');
+
+    }
+
+    public function open(){
+        if (isset($_POST['form_open_question'])) {
+            $this->_db->mark_open(intval($_POST['question_id_open']));
+            header("Location: index.php");
+        }
+        require_once (PATH_VIEWS . 'home.php');
+
     }
 
 }
