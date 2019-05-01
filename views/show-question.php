@@ -40,7 +40,8 @@
             <p><small> <i class="fa fa-calendar"></i> <?php echo date_format(date_create($question->creation_date), 'd/m/Y H:i:s') ?></small></p>
 
             <div>
-
+                <?php echo $question->subject  ?>
+                <hr>
             </div>
         </div>
     </div>
