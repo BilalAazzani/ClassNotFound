@@ -25,13 +25,18 @@ class QuestionController
             case 'update-question': $this->update_question(); break;
             case 'vote': $this ->vote(); break;
             case 'state-change': $this ->state(); break;
-            // case 'delete': $this->delete(); break;
+            case 'delete-question': $this->delete(); break;
             default: break;
         }
 
     }
 
     public function show() {
+
+        if(Db::get_question($_GET['id'])->state == 'D' and $_SESSION['member']->is_admin=='0'){
+            header("Location: index.php");
+        }
+
         $question = Db::get_question($_GET['id']);
         $answers = Db::get_answers($_GET['id']);
 
@@ -76,7 +81,6 @@ class QuestionController
     public function insert_answer(){
         if(isset($_POST['form_insert_answer'])){
             $this->_db->insert_answer($_POST['subject'],$_POST['question_id'],$_SESSION['member']->member_id);
-
             header("Location: index.php?action=show-question&id=".$_POST['question_id']);
         }
 
@@ -117,6 +121,13 @@ class QuestionController
             header("Location: index.php");
         }elseif (isset($_POST['form_mark_as_solved'])){
             $this->_db->mark_as_solved (intval($_POST['question_id_solved']));
+            header("Location: index.php");
+        }
+    }
+
+    public function delete(){
+        if (isset($_POST['form_delete_question'])) {
+            $this->_db->delete_question(intval($_POST['question_id_delete']));
             header("Location: index.php");
         }
     }

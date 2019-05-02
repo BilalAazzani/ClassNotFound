@@ -19,6 +19,7 @@ class HomeController
 
         $html_keyword='';
 
+
         if (!empty($_POST['form_search'])
             && !empty($_POST['keyword'])) {
             $tabquestions=$this->_db->select_question($_POST['keyword']);
