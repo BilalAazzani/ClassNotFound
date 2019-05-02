@@ -59,17 +59,9 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'update-question');
         break;
-    case 'duplicate-question': #mark duplicate
+    case 'state-change': #mark duplicate
         require_once(PATH_CONTROLLERS.'QuestionController.php');
-        $controller = new QuestionController($db,'duplicate-question');
-        break;
-    case 'open-question': #mark open
-        require_once(PATH_CONTROLLERS.'QuestionController.php');
-        $controller = new QuestionController($db,'open-question');
-        break;
-    case 'mark-as-solved': #mark as solved
-        require_once(PATH_CONTROLLERS.'QuestionController.php');
-        $controller = new QuestionController($db,'mark-as-solved');
+        $controller = new QuestionController($db,'state-change');
         break;
     case 'delete-question': #delete question
         require_once(PATH_CONTROLLERS.'QuestionController.php');

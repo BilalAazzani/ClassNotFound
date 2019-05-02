@@ -79,16 +79,16 @@
                     if($_SESSION['member']->is_admin == 1) {
                         if($tabquestions[$i]->getState()=='O'){?>
                             <td>
-                                <form action="index.php?action=duplicate-question" method="post">
+                                <form action="index.php?action=state-change" method="post">
                                     <button type="submit" name="form_duplicate_question" value="D" class="btn btn-secondary"><i class="fa fa-copy"></i></button>
-                                    <input type="hidden" name="question_id_duplicate" value="<?php $tabquestions[$i]->getId() ?>">
+                                    <input type="hidden" name="question_id_duplicate" value="<?php echo $tabquestions[$i]->getId() ?>">
                                 </form>
                             </td>
                         <?php }elseif ($tabquestions[$i]->getState()=='D'){ ?>
                             <td>
-                                <form action="index.php?action=open-question" method="post">
+                                <form action="index.php?action=state-change" method="post">
                                     <button type="submit" name="form_open_question" value="O" class="btn btn-secondary"><i class="fab fa-opera"></i></button>
-                                    <input type="hidden" name="question_id_open" value="<?php $tabquestions[$i]->getId() ?>">
+                                    <input type="hidden" name="question_id_open" value="<?php echo $tabquestions[$i]->getId() ?>">
                                 </form>
                             </td>
                         <?php } } }?>

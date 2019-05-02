@@ -24,9 +24,7 @@ class QuestionController
             case 'insert-answer' : $this->insert_answer(); break;
             case 'update-question': $this->update_question(); break;
             case 'vote': $this ->vote(); break;
-            case 'duplicate-question': $this ->duplicate(); break;
-            case 'open-question': $this ->open(); break;
-            case 'mark-as-solved': $this ->MarkAsSolved(); break;
+            case 'state-change': $this ->state(); break;
             // case 'delete': $this->delete(); break;
             default: break;
         }
@@ -110,29 +108,16 @@ class QuestionController
         return TotalVote;
     }
 
-    public function duplicate(){
+    public function state(){
         if (isset($_POST['form_duplicate_question'])) {
             $this->_db->mark_duplicate(intval($_POST['question_id_duplicate']));
             header("Location: index.php");
-        }
-
-    }
-
-    public function open(){
-        if (isset($_POST['form_open_question'])) {
+        }elseif (isset($_POST['form_open_question'])) {
             $this->_db->mark_open(intval($_POST['question_id_open']));
             header("Location: index.php");
-        }
-
-    }
-
-    public function MarkAsSolved(){
-
-        if (isset($_POST['form_mark_as_solved'])){
+        }elseif (isset($_POST['form_mark_as_solved'])){
             $this->_db->mark_as_solved (intval($_POST['question_id_solved']));
             header("Location: index.php");
-
-
         }
     }
 
