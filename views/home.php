@@ -28,20 +28,20 @@
     <!--- Questions table -->
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th width="840"> <scope="col"> Question</th>
-                <th width="200"> <scope="col">Category</th>
-                <?php
-                if(isset($_SESSION['member']) and $_SESSION['member']){
-                    if($_SESSION['member']->is_admin == 1 ) {?>
-                        <th width="150"> <scope="col">Delete</th>
-                    <?php } }?>
-                <?php
-                if(isset($_SESSION['member']) and $_SESSION['member']){
-                    if($_SESSION['member']->is_admin == 1 ) {?>
-                        <th width="150"> <scope="col">Duplicate/Open</th>
-                    <?php } }?>
-            </tr>
+        <tr>
+            <th width="840"> <scope="col"> Question</th>
+            <th width="200"> <scope="col">Category</th>
+            <?php
+            if(isset($_SESSION['member']) and $_SESSION['member']){
+                if($_SESSION['member']->is_admin == 1 ) {?>
+                    <th width="150"> <scope="col">Delete</th>
+                <?php } }?>
+            <?php
+            if(isset($_SESSION['member']) and $_SESSION['member']){
+                if($_SESSION['member']->is_admin == 1 ) {?>
+                    <th width="150"> <scope="col">Duplicate/Open</th>
+                <?php } }?>
+        </tr>
         </thead>
         <tbody>
         <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>
@@ -51,8 +51,12 @@
                         <span class="html"><?php echo $tabquestions[$i]->getTitle() ?></span>
                     </a>
                     <div class="solved_msg">
-                        afaz
-                    </div>
+
+                        <?php  if($tabquestions[$i]->getState()=='S') {
+                            echo '[solved]';
+                        }
+
+                        ?> </div>
 
                 </td>
                 <td><?php echo $tabquestions[$i]->getCatName() ?></td>
