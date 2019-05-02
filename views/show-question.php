@@ -26,10 +26,12 @@
                             </div>
                         </form>
                     <?php }elseif ($question->state=='S'){?>
+                        <div class="form_solved">
                         <form action="index.php?action=state-change" method="post">
-                            <button type="submit" name="form_open_question" value="O" class="btn btn-success"> <i class="fas fa-check"></i>Mark as open</button>
+                            <button type="submit" name="form_open_question" value="O" class="btn btn-success"> <i class="fas fa-lock-open"></i>Mark as open</button>
                             <input type="hidden" name="question_id_open" value="<?php echo $question->question_id ?>">
                         </form>
+                        </div>
                     <?php } ?>
                 <?php } } ?>
 
