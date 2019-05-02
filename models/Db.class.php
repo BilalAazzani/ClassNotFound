@@ -55,7 +55,6 @@ class Db
 
     public static function get_question($id)
     {
-
         $query = "SELECT * FROM questions inner join members m on m.member_id = questions.member_id WHERE question_id = :id";
         $ps = Db::getInstance()->_db->prepare($query);
         $ps->bindValue(':id', $id, PDO::PARAM_INT);
