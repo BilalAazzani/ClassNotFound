@@ -275,6 +275,15 @@ class Db
         return $ps->execute();
     }
 
+    public function delete_answer($id){
+        $query = "DELETE FROM answers WHERE question_id=:id";
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':id', $id);
+        return $ps->execute();
+
+    }
+
+
     public function delete_question($id){
         $query = "DELETE FROM questions WHERE question_id=:id";
         $ps = $this->_db->prepare($query);

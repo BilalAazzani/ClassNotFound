@@ -34,7 +34,12 @@ class QuestionController
     public function show() {
 
         if(Db::get_question($_GET['id'])->state == 'D' and $_SESSION['member']->is_admin=='0'){
-            header("Location: index.php");
+
+               echo "<script>alert(\"This question is marked as duplicate\");
+
+                         document.location.href ='http://localhost:63342/projetphp/index.php';
+
+                </script>";
         }
 
         $question = Db::get_question($_GET['id']);
