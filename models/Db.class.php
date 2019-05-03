@@ -47,7 +47,7 @@ class Db
 
         $table = array();
         while ($row = $ps->fetch()) {
-            $table[] = new Question($row->question_id, $row->title, $row->subject, $row->category_id, $row->member_id, $row->creation_date, $row->state, $row->answer_id, $row->name);
+            $table[] = new Question($row->question_id, $row->title, $row->subject, $row->category_id, $row->member_id, $row->creation_date, $row->state, $row->goodanswer_id, $row->name);
         }
         return $table;
 

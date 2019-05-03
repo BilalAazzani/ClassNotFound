@@ -17,10 +17,10 @@ class Question
     private $_member;
     private $_creation_date;
     private $_state;
-    private $_goodanswer;
+    private $_goodanswer_id;
     private $_cat_name;
 
-    public function __construct($id, $title, $subject, $category, $member, $creation_date, $state, $goodanswer, $cat_name)
+    public function __construct($id, $title, $subject, $category, $member, $creation_date, $state, $goodanswer_id, $cat_name)
     {
         $this->_id = $id;
         $this->_title = $title;
@@ -29,7 +29,7 @@ class Question
         $this->_member = $member;
         $this->_creation_date = $creation_date;
         $this-> _state = $state;
-        $this-> _goodanswer = $goodanswer;
+        $this-> _goodanswer = $goodanswer_id;
         $this->_cat_name = $cat_name;
 
     }
@@ -93,9 +93,9 @@ class Question
     /**
      * @return mixed
      */
-    public function getGoodanswer()
+    public function getGoodanswer_Id()
     {
-        return $this->_goodanswer;
+        return $this->_goodanswer_id;
     }
 
     /**
