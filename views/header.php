@@ -33,7 +33,6 @@
             <?php
                 if(isset($_SESSION['member']) and $_SESSION['member']) {
                     if ($_SESSION['member']->is_admin == '1') {
-                        echo '<li><a href="index.php?action=admin">Admin zone</a></li>';
                         echo '<li><a href="index.php?action=member">List of members</a></li>';
                     }
 

@@ -244,10 +244,11 @@ class Db
         return $ps->execute();
     }
 
-    public function vote($member_id, $answer_id, $vote_value)
+    public function vote($question_id, $member_id, $answer_id, $vote_value)
     {
-        $query = 'INSERT INTO votes (member_id, answer_id, vote_value) values (:member_id,:answer_id,:vote_value)';
+        $query = 'INSERT INTO votes (question_id, member_id, answer_id, vote_value) values (:question_id, :member_id,:answer_id,:vote_value)';
         $ps = $this->_db->prepare($query);
+        $ps->bindValue(':question_id', $question_id);
         $ps->bindValue(':member_id', $member_id);
         $ps->bindValue(':answer_id', $answer_id);
         $ps->bindValue(':vote_value', $vote_value);

@@ -31,10 +31,6 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'LoginController.php');
         $controller = new LoginController($db);
         break;
-    case 'admin': # action = admin
-        require_once(PATH_CONTROLLERS.'AdminController.php');
-        $controller = new AdminController();
-        break;
     case 'category': # action= category
         require_once(PATH_CONTROLLERS.'CategoryController.php');
         $controller = new CategoryController($db);

@@ -38,7 +38,7 @@ class LoginController
                     $notification = 'Your account is suspended';
                     session_destroy();
                 }elseif ($member->is_admin == '1'){
-                    header("Location: index.php?action=admin");
+                    header("Location: index.php?action=home");
                 } else {
                     header("Location: index.php?action=home");
                 }

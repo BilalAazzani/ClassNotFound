@@ -126,12 +126,11 @@ th {
         top:50%;
         left:0;
         width:100%;
-        background:#a9c622;
-        height:40px;
+            height:40px;
         z-index: 500;
     }
     h2{
-        background:#a9c622;
+        background:gray;
         padding:4px 8px;
     }
 

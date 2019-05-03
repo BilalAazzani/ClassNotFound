@@ -33,11 +33,17 @@ class QuestionController
 
     public function show() {
 
-        if(Db::get_question($_GET['id'])->state == 'D' and $_SESSION['member']->is_admin=='0'){
+        if(empty($_SESSION['authenticated']) and Db::get_question($_GET['id'])->state == 'D'){
 
                echo "<script>alert(\"This question is marked as duplicate.\");
 
-                         document.location.href ='http://localhost:63342/projetphp/index.php';
+                         document.location.href ='http://localhost/projetphp/index.php';
+
+                </script>";
+        }elseif (Db::get_question($_GET['id'])->state == 'D' and $_SESSION['member']->is_admin=='0'){
+            echo "<script>alert(\"This question is marked as duplicate.\");
+
+                         document.location.href ='http://localhost/projetphp/index.php';
 
                 </script>";
         }
@@ -106,7 +112,7 @@ class QuestionController
 
     public function vote(){
         if (isset($_POST['form_vote'])) {
-            $this->_db->vote(intval($_SESSION['member']->member_id), intval($_POST['answer_id']), $_POST['form_vote']);
+            $this->_db->vote(intval($_POST['question_id_vote']), intval($_SESSION['member']->member_id), intval($_POST['answer_id']), $_POST['form_vote']);
             header("Location: index.php?action=show-question&id=".$_POST['question_id_vote']);
         }
         require_once (PATH_VIEWS . 'show-question.php');
