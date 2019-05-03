@@ -132,6 +132,7 @@ class QuestionController
 
     public function delete(){
         if (isset($_POST['form_delete_question'])) {
+            $this->_db->delete_votes(intval($_POST['question_id_delete']));
             $this->_db->delete_answers(intval($_POST['question_id_delete']));
             $this->_db->delete_question(intval($_POST['question_id_delete']));
             header("Location: index.php");
