@@ -30,7 +30,7 @@
         <thead>
         <tr>
             <th width="840"> <scope="col"> Question</th>
-            <th width="200"> <scope="col">Category</th>
+            <th width="200"> <scope="col"> Category</th>
             <?php
             if(isset($_SESSION['member']) and $_SESSION['member']){
                 if($_SESSION['member']->is_admin == 1 ) {?>

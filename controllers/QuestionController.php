@@ -17,6 +17,7 @@ class QuestionController
     }
 
     public function run(){
+        $notification='';
 
         switch ($this->action) {
             case 'show': $this->show(); break;
@@ -32,6 +33,7 @@ class QuestionController
     }
 
     public function show() {
+        $notification='';
 
         if(empty($_SESSION['authenticated']) and Db::get_question($_GET['id'])->state == 'D'){
 
@@ -82,21 +84,28 @@ class QuestionController
                 );
                 if ($id_inserted_question) {
                     header("Location: index.php?action=show-question&id=" . $id_inserted_question);
-                }}
-
-
+                }
+            }
         }
         $categories = $this->_db->select_categories();
         require_once (PATH_VIEWS . 'question.php');
     }
 
     public function insert_answer(){
-        if(isset($_POST['form_insert_answer'])){
-            $this->_db->insert_answer($_POST['subject'],$_POST['question_id'],$_SESSION['member']->member_id);
-            header("Location: index.php?action=show-question&id=".$_POST['question_id']);
-        }
+        $question=$this->_db->get_question($_POST['question_id']);
+        $answers=$this->_db->get_answers($_POST['question_id']);
 
-        require_once(PATH_VIEWS . 'showquestion.php');
+        $notification='';
+
+        if (isset($_POST['form_insert_answer'])) {
+            if (empty($_SESSION['authenticated'])){
+                $notification='You must be logged in to answer';
+            }else{
+                $this->_db->insert_answer($_POST['subject'], $_POST['question_id'], $_SESSION['member']->member_id);
+                header("Location: index.php?action=show-question&id=" . $_POST['question_id']);
+            }
+        }
+        require_once(PATH_VIEWS . 'show-question.php');
     }
 
     public function update_question()

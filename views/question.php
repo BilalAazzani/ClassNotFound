@@ -1,7 +1,5 @@
 <section class="content">
-    <div class="container">
-
-
+    <div class="card-body">
         <h2>Ask your question</h2>
         <div class="form">
 
@@ -29,7 +27,7 @@
                 </div>
 
                 <div class="notification">
-                    <p align="center"><?php echo "$notification" ?></p>
+                    <p align="center"><?php echo $notification ?></p>
                 </div>
 
                 <p class="text-center">
