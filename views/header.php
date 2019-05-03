@@ -11,19 +11,19 @@
 <header>
     <h1>
         <a href="index.php">
-            <img src="<?php echo PATH_VIEWS ?>images/logo.jpg" alt="logo">
+            <img src="<?php echo PATH_VIEWS ?>images/logo2.png" alt="logo">
         </a>
-        ClassNotFound
-    </h1>
-    <p class="soustitre">Your website of reference in the developper world</p>
 
+    </h1>
+
+    <div class="topnav">
     <nav>
 
 
         <ul>
             <?php
             if(isset($_SESSION['member']) and $_SESSION['member']) {
-                echo "<li>Hello " . $_SESSION['member']->first_name . '!</li>';
+                echo "<li3>Hello " . $_SESSION['member']->first_name . '!</li3>';
             }
             ?>
 

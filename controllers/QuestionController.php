@@ -35,7 +35,7 @@ class QuestionController
 
         if(Db::get_question($_GET['id'])->state == 'D' and $_SESSION['member']->is_admin=='0'){
 
-               echo "<script>alert(\"This question is marked as duplicate\");
+               echo "<script>alert(\"This question is marked as duplicate.\");
 
                          document.location.href ='http://localhost:63342/projetphp/index.php';
 
