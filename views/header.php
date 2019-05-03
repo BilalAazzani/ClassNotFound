@@ -18,6 +18,8 @@
 
     <div class="topnav">
     <nav>
+
+
         <ul>
             <?php
             if(isset($_SESSION['member']) and $_SESSION['member']) {
@@ -45,5 +47,6 @@
             ?>
         </ul>
     </nav>
-    </div>
+        </div>
+
 </header>
