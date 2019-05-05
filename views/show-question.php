@@ -18,6 +18,7 @@
 
                     </form>
 
+                    <!--- Mark as solved -->
                     <?php if ($question->state=='O'){ ?>
                         <form action="index.php?action=state-change" method="post">
                             <div class="form_solved">

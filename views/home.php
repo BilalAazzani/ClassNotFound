@@ -88,7 +88,7 @@
                                     <input type="hidden" name="question_id_open" value="<?php echo $tabquestions[$i]->getId() ?>">
                                 </form>
                             </td>
-                        <?php }elseif ($tabquestions[$i]->getState()=='S'){ ?>
+                        <?php }else{ ?>
                             <td>
                                 <form action="index.php?action=state-change" method="post">
                                     <button type="submit" name="form_open_question" value="O" class="btn btn-secondary"><i class="fab fa-opera"></i></button>
