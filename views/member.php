@@ -13,6 +13,7 @@
             <th> <scope="col">Suspend</th>
         </tr>
         </thead>
+
         <tbody>
         <?php for ($i = 0; $i < count($tabmembers); $i++) { ?>
             <tr>
@@ -32,7 +33,7 @@
                     <form action="index.php?action=member" method="post">
                         <button type="submit" name="form_make_admin" value="<?php echo $tabmembers[$i]->member_id ?>">Make admin</button>
                     </form>
-                    <?php }else{ ?>
+                    <?php }else { ?>
                         <form action="index.php?action=member" method="post">
                             <button type="submit" name="form_make_member" value="<?php echo $tabmembers[$i]->member_id ?>">Make member</button>
                         </form>
@@ -47,7 +48,7 @@
                     ?>
                 </td>
                 <td>
-                    <?php if ($tabmembers[$i]->is_active == 1) {?>
+                    <?php if ($tabmembers[$i]->is_active == 1 ) {?>
                     <form action="index.php?action=member" method="post">
                         <button type="submit" name="form_suspend" value="<?php echo $tabmembers[$i]->member_id ?>">Suspend</button>
                     </form>

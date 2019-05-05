@@ -98,8 +98,11 @@ th{
 border: 1px solid black;
 }
 
-.vote{
+.vote {
 float: right;
+}
+.formD{
+    float: right;
 }
 
 label {

@@ -28,23 +28,29 @@ class LoginController
         $notification = '';
         $member = false;
         if (!empty($_POST)) {
-            $member = $this->_db->validate_member($_POST['email'], $_POST['password']);
-            if($member){
-                $_SESSION['authenticated'] = 'autorised';
-                $_SESSION['member'] = $member;
-                $_SESSION['login'] = $_POST['email'];
+         /*   if(empty($_POST['password']) and empty($_POST['email'])){
+                $notification = 'You must enter your email and password';
+            }elseif (empty($_POST['password'])){
+                $notification = 'You must enter your password';
+            }elseif (empty($_POST['email'])){
+                $notification = 'You must enter your email';
+            }else{*/
+                $member = $this->_db->validate_member($_POST['email'], $_POST['password']);
+                if($member){
+                    $_SESSION['authenticated'] = 'autorised';
+                    $_SESSION['member'] = $member;
+                    $_SESSION['login'] = $_POST['email'];
 
-                if ($member->is_active == '0') {
-                    $notification = 'Your account is suspended';
-                    session_destroy();
-                }elseif ($member->is_admin == '1'){
-                    header("Location: index.php?action=home");
-                } else {
-                    header("Location: index.php?action=home");
+                    if ($member->is_active == '0') {
+                        $notification = 'Your account is suspended';
+                        session_destroy();
+                    }else {
+                        header("Location: index.php?action=home");
+                    }
+                }else  {
+                    $notification = 'Your email or password is wrong.';
                 }
-            }else  {
-                $notification = 'Your email or password is wrong.';
-            }
+          //  }
         }
 
         require_once(PATH_VIEWS . 'login.php');

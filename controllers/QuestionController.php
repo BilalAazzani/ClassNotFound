@@ -74,7 +74,11 @@ class QuestionController
         if (isset($_POST['form_create_question'])) {
             if (empty($_SESSION['authenticated'])) {
                 $notification='You must be logged in to ask a question';
-            }else{
+            }elseif (empty($_POST['title'])){
+                $notification='You must write your title';
+            }elseif (empty($_POST['subject'])){
+                $notification='You must write your subject';
+            } else{
                 $id_inserted_question = $this->_db->insert_question(
                     $_POST['title'],
                     $_POST['subject'],
