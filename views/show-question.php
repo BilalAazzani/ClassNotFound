@@ -60,6 +60,9 @@
                 <div class="col-8 alert alert-info ">
                     <?php echo $answer->subject; ?>
 
+                    <!--- Good answer -->
+                    <!--- TODO -->
+
                     <!--- Votes -->
                     <div class="vote">
 
