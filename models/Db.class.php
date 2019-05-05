@@ -319,7 +319,7 @@ class Db
 
     //Good answer
     public function good_answer($goodanswer_id, $question_id){
-        $query = "UPDATE questions SET goodanswer_id=:goodanwser_id WHERE question_id=:question_id";
+        $query = "UPDATE questions SET goodanswer_id=:goodanswer_id WHERE question_id=:question_id";
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':goodanswer_id', $goodanswer_id);
         $ps->bindValue(':question_id', $question_id);
