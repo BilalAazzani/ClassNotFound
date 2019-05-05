@@ -77,7 +77,7 @@ class Db
         return $ps->fetchAll();
     }
 
-
+    //Displaying the questions
     public function insert_question($title, $subject, $category, $member)
     {
         # Solution d'INSERT avec prepared statement
@@ -97,6 +97,7 @@ class Db
         }
     }
 
+    //Displaying the answers
     public function select_answer($keyword = '')
     {
         if ($keyword != '') {
@@ -119,6 +120,7 @@ class Db
 
     }
 
+    //login
     public function validate_member($email, $password)
     {
         $query = 'SELECT * from members WHERE email=:email';
@@ -148,6 +150,7 @@ class Db
         return $hash = 1;
     }
 
+    //register
     public function insert_member($first_name, $last_name, $email, $password)
     {
         $query = 'INSERT INTO members (first_name,last_name,email,password) values (:first_name,:last_name,:email,:password)';
@@ -167,6 +170,7 @@ class Db
         return $ps->fetchAll();
     }
 
+    //display categories
     public static function select_categories()
     {
 
@@ -183,6 +187,7 @@ class Db
 
     }
 
+    //to get all the question related to the category you clicked on
     public static function get_question_cat($id)
     {
         $query = 'SELECT * FROM questions q inner join categories c on c.category_id = q.category_id WHERE c.category_id=:id';
@@ -192,6 +197,7 @@ class Db
         return $ps->fetchAll();
     }
 
+    //active/suspended
     public static function suspend_user($id)
     {
         $query = "UPDATE members SET is_active = '0' WHERE member_id=:id";
@@ -208,6 +214,7 @@ class Db
         $ps->execute();
     }
 
+    //admin/member
     public static function make_admin($id)
     {
         $query = "UPDATE members SET is_admin = '1' WHERE member_id=:id";
@@ -224,6 +231,7 @@ class Db
         $ps->execute();
     }
 
+    //Add an answer
     public function insert_answer($subject, $question_id, $member_id)
     {
         $query = 'INSERT INTO answers (subject, question_id, member_id) values (:subject,:question_id,:member_id)';
@@ -234,6 +242,7 @@ class Db
         return $ps->execute();
     }
 
+    //Update the subject of a question
     public function update_question($subject, $id)
     {
         $query = 'UPDATE questions SET subject=:subject WHERE question_id=:id ';
@@ -244,6 +253,7 @@ class Db
         return $ps->execute();
     }
 
+    //Vote
     public function vote($question_id, $member_id, $answer_id, $vote_value)
     {
         $query = 'INSERT INTO votes (question_id, member_id, answer_id, vote_value) values (:question_id, :member_id,:answer_id,:vote_value)';
@@ -255,6 +265,7 @@ class Db
         return $ps->execute();
     }
 
+    //Question state
     public function mark_duplicate($id){
         $query = "UPDATE questions SET state = 'D' WHERE question_id=:id";
         $ps = $this->_db->prepare($query);
@@ -276,6 +287,7 @@ class Db
         return $ps->execute();
     }
 
+    //Delete from db
     public function delete_answer($id){
         $query = "DELETE FROM answers WHERE question_id=:id";
         $ps = $this->_db->prepare($query);
@@ -283,7 +295,6 @@ class Db
         return $ps->execute();
 
     }
-
 
     public function delete_question($id){
         $query = "DELETE FROM questions WHERE question_id=:id";
@@ -305,4 +316,14 @@ class Db
         $ps->bindValue(':id', $id);
         return $ps->execute();
     }
+
+    //Good answer
+    public function good_answer($goodanswer_id, $question_id){
+        $query = "UPDATE questions SET goodanswer_id=:goodanwser_id WHERE question_id=:question_id";
+        $ps = $this->_db->prepare($query);
+        $ps->bindValue(':goodanswer_id', $goodanswer_id);
+        $ps->bindValue(':question_id', $question_id);
+        return $ps->execute();
+    }
+
 }

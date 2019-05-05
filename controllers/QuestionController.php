@@ -27,6 +27,7 @@ class QuestionController
             case 'vote': $this ->vote(); break;
             case 'state-change': $this ->state(); break;
             case 'delete-question': $this->delete(); break;
+            case 'goodanswer': $this->goodanswer(); break;
             default: break;
         }
 
@@ -155,6 +156,13 @@ class QuestionController
             $this->_db->delete_answers(intval($_POST['question_id_delete']));
             $this->_db->delete_question(intval($_POST['question_id_delete']));
             header("Location: index.php");
+        }
+    }
+
+    public function goodanswer(){
+        if (isset($_POST['form_goodanswer'])) {
+            $this->_db->good_answer(intval($_POST['answer_id']),intval($_POST['question_id_goodanswer']));
+            header("Location: index.php?action=show-question&id=".$_POST['question_id_goodanswer']);
         }
     }
 
