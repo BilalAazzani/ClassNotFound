@@ -81,14 +81,29 @@
                                     <input type="hidden" name="question_id_duplicate" value="<?php echo $tabquestions[$i]->getId() ?>">
                                 </form>
                             </td>
-                        <?php }elseif ($tabquestions[$i]->getState()=='D' or $tabquestions[$i]->getState()=='S'){ ?>
+                        <?php }elseif ($tabquestions[$i]->getState()=='D'){ ?>
                             <td>
                                 <form action="index.php?action=state-change" method="post">
                                     <button type="submit" name="form_open_question" value="O" class="btn btn-secondary"><i class="fab fa-opera"></i></button>
                                     <input type="hidden" name="question_id_open" value="<?php echo $tabquestions[$i]->getId() ?>">
                                 </form>
                             </td>
-                        <?php } } }?>
+                        <?php }else{ ?>
+                            <td>
+                                <form action="index.php?action=state-change" method="post">
+                                    <button type="submit" name="form_open_question" value="O" class="btn btn-secondary"><i class="fab fa-opera"></i></button>
+                                    <input type="hidden" name="question_id_open" value="<?php echo $tabquestions[$i]->getId() ?>">
+                                </form>
+
+                                <div style="float: right;">
+                                    <form action="index.php?action=state-change" method="post">
+                                        <button type="submit" name="form_duplicate_question" value="D" class="btn btn-secondary"><i class="fa fa-copy"></i></button>
+                                        <input type="hidden" name="question_id_duplicate" value="<?php echo $tabquestions[$i]->getId() ?>">
+                                    </form>
+                                </div>
+
+                            </td>
+                       <?php } } }?>
 
             </tr>
         <?php } ?>

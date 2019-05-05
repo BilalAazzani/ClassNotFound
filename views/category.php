@@ -1,7 +1,7 @@
 <div class="content">
     <h2 align="center">All the related Questions</h2>
 
-    <div>
+    <div class="card-body">
         Categories :
         <?php
         foreach ($categories as $category) {
@@ -30,7 +30,7 @@
                         </span>
                     </a>
                 </td>
-                <!-- <td><?php echo $tab_question_cat[$i]->category_id ?></td> -->
+                <!-- <td><?php echo $tab_question_cat[$i]->getCatName() ?></td> -->
             </tr>
         <?php } ?>
         </tbody>

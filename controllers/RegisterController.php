@@ -20,9 +20,19 @@ class RegisterController
     {
         $notification = '';
 
-        if (isset($_POST['form_register'])) {
-            $this->_db->insert_member($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password']);
-            $notification='You can now log in';
+        if (!empty($_POST)) {
+           /*if(empty($_POST['password']) and empty($_POST['email'])){
+                $notification = 'You must enter your email and password';
+            }elseif (empty($_POST['password'])){
+                $notification = 'You must enter your password';
+            }elseif (empty($_POST['email'])){
+                $notification = 'You must enter your email';
+            }elseif (empty($_POST['first_name']) or empty($_POST['last_name'])){
+                $notification = 'You must enter your first/last name';
+            } else{ */
+                $this->_db->insert_member($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password']);
+                $notification='You can now log in';
+           // }
         }
 
         require_once(PATH_VIEWS . 'register.php');

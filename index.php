@@ -55,7 +55,7 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'update-question');
         break;
-    case 'state-change': #mark duplicate
+    case 'state-change': #change state
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'state-change');
         break;
@@ -66,6 +66,10 @@ switch ($_GET['action']) {
     case 'vote': #vote
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'vote');
+        break;
+    case 'goodanswer': #good answer
+        require_once(PATH_CONTROLLERS.'QuestionController.php');
+        $controller = new QuestionController($db,'goodanswer');
         break;
     case 'register': # action=register
         require_once(PATH_CONTROLLERS.'RegisterController.php');
@@ -80,7 +84,6 @@ switch ($_GET['action']) {
         $controller = new HomeController($db);
         break;
 }
-//TODO duplicate question
 
 $controller->run();
 

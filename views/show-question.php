@@ -18,6 +18,7 @@
 
                     </form>
 
+                    <!--- Mark as solved -->
                     <?php if ($question->state=='O'){ ?>
                         <form action="index.php?action=state-change" method="post">
                             <div class="form_solved">
@@ -58,7 +59,23 @@
                 </div>
 
                 <div class="col-8 alert alert-info ">
-                    <?php echo $answer->subject; ?>
+                    <?php echo $answer->subject;
+                    if($question->goodanswer_id == $answer->answer_id){
+                        echo " [good answer]";
+                    }
+                    ?>
+
+
+                    <!--- Good answer -->
+                    <?php
+                    if(isset($_SESSION['member']) and $_SESSION['member']){
+                        if($_SESSION['member']->member_id == $question->member_id ) {?>
+                            <form action="index.php?action=goodanswer" method="post">
+                                <button type="submit" name="form_goodanswer" class="btn-dark"><i class="fab fa-google"></i></button>
+                                <input type="hidden" value="<?php echo $answer->answer_id ?>" name="answer_id">
+                                <input type="hidden" name="question_id_goodanswer" value="<?php echo $question->question_id ?>">
+                            </form>
+                        <?php }} ?>
 
                     <!--- Votes -->
                     <div class="vote">
