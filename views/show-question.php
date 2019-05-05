@@ -65,7 +65,6 @@
                     }
                     ?>
 
-
                     <!--- Good answer -->
                     <?php
                     if(isset($_SESSION['member']) and $_SESSION['member']){
