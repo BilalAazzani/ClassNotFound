@@ -59,7 +59,12 @@
                 </div>
 
                 <div class="col-8 alert alert-info ">
-                    <?php echo $answer->subject; ?>
+                    <?php echo $answer->subject;
+                    if($question->goodanswer_id == $answer->answer_id){
+                        echo " [good answer]";
+                    }
+                    ?>
+
 
                     <!--- Good answer -->
                     <?php
