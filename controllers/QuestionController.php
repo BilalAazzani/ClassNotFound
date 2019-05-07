@@ -126,9 +126,21 @@ class QuestionController
     }
 
     public function vote(){
-        if (isset($_POST['form_vote'])) {
-            $this->_db->vote(intval($_POST['question_id_vote']), intval($_SESSION['member']->member_id), intval($_POST['answer_id']), $_POST['form_vote']);
-            header("Location: index.php?action=show-question&id=".$_POST['question_id_vote']);
+        if(isset($_SESSION['member']) and $_SESSION['member']) {
+            if (isset($_POST['form_vote'])) {
+                try {
+                    $this->_db->vote(
+                        intval($_POST['question_id_vote']),
+                        intval($_SESSION['member']->member_id),
+                        intval($_POST['answer_id']),
+                        $_POST['form_vote']);
+                    header("Location: index.php?action=show-question&id=" . $_POST['question_id_vote']);
+                } catch (PDOException $exception) {
+                    header("Location: index.php?action=show-question&id=" . $_POST['question_id_vote']);
+                }
+            }
+        }else{
+            header("Location: index.php?action=show-question&id=" . $_POST['question_id_vote']);
         }
         require_once (PATH_VIEWS . 'show-question.php');
 

@@ -23,7 +23,7 @@
         <ul>
             <?php
             if(isset($_SESSION['member']) and $_SESSION['member']) {
-                echo "<li3>Hello " . $_SESSION['member']->first_name . '!!</li3>';
+                echo "<li3>Hello " . $_SESSION['member']->first_name . '!</li3>';
             }
             ?>
 
