@@ -89,6 +89,8 @@
                             <input type="hidden" name="question_id_vote" value="<?php echo $question->question_id ?>">
 
                         </form>
+
+
                     </div>
 
                 </div>
@@ -96,6 +98,11 @@
                 <?php
             }
             ?>
+
+
+
+
+
         </div>
 
         <!--- Add an answer area -->

@@ -59,10 +59,7 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'state-change');
         break;
-    case 'delete-question': #delete question
-        require_once(PATH_CONTROLLERS.'QuestionController.php');
-        $controller = new QuestionController($db,'delete-question');
-        break;
+
     case 'vote': #vote
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'vote');

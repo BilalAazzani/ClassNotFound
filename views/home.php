@@ -3,17 +3,24 @@
     </br>
 
     <!--- Search bar -->
-    <div class="form">
-        <div id="search">
-            <form action="index.php" method="post">
-                Search for a question: <input type="text" name="keyword" value="<?php echo $html_keyword ?>" placeholder="Search.."/>
-                <input type="submit" name="form_search" value="Search">
-            </form>
+
+    <form action="index.php" method="post">
+
+        <div class="wrap">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="Search..." name="keyword" value="<?php echo $html_keyword ?>">
+                <button type="submit" class="searchButton" name="form_search" value="Search"> <i class="fa fa-search"></i> </button>
+
+            </div>
+
         </div>
-    </div>
+    </form>
+    </br>
+
+
 
     <!-- Categories -->
-    <div>
+    <div class="divRow">
         Categories :
         <?php
         foreach ($categories as $category) {
