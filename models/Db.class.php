@@ -297,7 +297,7 @@ class Db
     }
 
     //Delete from db
-    public function delete_answer($id){
+    public function delete_answers($id){
         $query = "DELETE FROM answers WHERE question_id=:id";
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':id', $id);
