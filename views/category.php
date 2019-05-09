@@ -17,20 +17,20 @@
         <thead>
         <tr>
             <th width="840"> <scope="col">Question</th>
-           <!-- <th width="330"> <scope="col">Category</th> -->
+            <th width="330"> <scope="col">Category</th>
         </tr>
         </thead>
         <tbody>
         <?php for ($i = 0; $i < count($tab_question_cat); $i++) { ?>
             <tr>
                 <td>
-                    <a href="index.php?action=show-question&id=<?php echo $tab_question_cat[$i]->question_id ?>">
+                    <a href="index.php?action=show-question&id=<?php echo $tab_question_cat[$i]->getId() ?>">
                         <span class="html">
-                            <?php echo $tab_question_cat[$i]->title ?>
+                            <?php echo $tab_question_cat[$i]->getTitle() ?>
                         </span>
                     </a>
                 </td>
-                <!-- <td><?php echo $tab_question_cat[$i]->getCatName() ?></td> -->
+               <td> <?php echo $tab_question_cat[$i]->getCatName() ?></td>
             </tr>
         <?php } ?>
         </tbody>

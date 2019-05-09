@@ -199,11 +199,24 @@ class Db
     //to get all the question related to the category you clicked on
     public static function get_question_cat($id)
     {
-        $query = 'SELECT * FROM questions WHERE category_id=:id';
+        $query = 'SELECT * FROM questions q inner join categories c on c.category_id = q.category_id WHERE c.category_id=:id';
         $ps = Db::getInstance()->_db->prepare($query);
         $ps->bindValue(':id', $id, PDO::PARAM_INT);
         $ps->execute();
-        return $ps->fetchAll();
+        $table = array();
+        while ($row = $ps->fetch()) {
+            $table[] = new Question(
+                $row->question_id,
+                $row->title,
+                $row->subject,
+                $row->category_id,
+                $row->member_id,
+                $row->creation_date,
+                $row->state,
+                $row->goodanswer_id,
+                $row->name);
+        }
+        return $table;
     }
 
     //active/suspended
@@ -302,7 +315,6 @@ class Db
         $ps = $this->_db->prepare($query);
         $ps->bindValue(':id', $id);
         return $ps->execute();
-
     }
 
     public function delete_question($id){

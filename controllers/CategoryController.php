@@ -18,8 +18,8 @@ class CategoryController
     public function run()
     {
         $tab_question_cat=$this->_db->get_question_cat($_GET['catid']);
-
         $categories = $this->_db->select_categories();
+
         require_once(PATH_VIEWS . 'category.php');
     }
 }
