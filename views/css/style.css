@@ -109,13 +109,6 @@ label {
     font-style: italic;
 }
 
-
-/*Footer*/
-#footer {
-background-color: lightgreen;
-padding: 15px 20px;
-height:50px;   /* Height of the footer */
-}
 .search {
     width: 100%;
     position: relative;
@@ -155,4 +148,11 @@ height:50px;   /* Height of the footer */
 
     top: 50%;
     left: 50%;
+}
+
+/*Footer*/
+#footer {
+background-color: lightgreen;
+padding: 15px 20px;
+height:50px;   /* Height of the footer */
 }

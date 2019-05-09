@@ -174,6 +174,7 @@ class QuestionController
 
     public function goodanswer(){
         if (isset($_POST['form_goodanswer'])) {
+            $this->_db->mark_as_solved(intval($_POST['question_id_goodanswer']));
             $this->_db->good_answer(intval($_POST['answer_id']),intval($_POST['question_id_goodanswer']));
             header("Location: index.php?action=show-question&id=".$_POST['question_id_goodanswer']);
         }

@@ -19,7 +19,7 @@
                     </form>
 
                     <!--- Mark as solved -->
-                    <?php if ($question->state=='O'){ ?>
+                    <?php if ($question->state=='O' and $question->goodanswer_id!=null){ ?>
                         <form action="index.php?action=state-change" method="post">
                             <div class="form_solved">
                                 <button type="submit" name ="form_mark_as_solved" value="S" class="btn btn-success"> <i class="fas fa-check"></i>Mark as solved</button>

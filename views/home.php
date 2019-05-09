@@ -5,19 +5,14 @@
     <!--- Search bar -->
 
     <form action="index.php" method="post">
-
         <div class="wrap">
             <div class="search">
                 <input type="text" class="searchTerm" placeholder="Search..." name="keyword" value="<?php echo $html_keyword ?>">
                 <button type="submit" class="searchButton" name="form_search" value="Search"> <i class="fa fa-search"></i> </button>
-
             </div>
-
         </div>
     </form>
     </br>
-
-
 
     <!-- Categories -->
     <div class="divRow">
