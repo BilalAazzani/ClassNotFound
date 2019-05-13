@@ -15,11 +15,14 @@
         </thead>
 
         <tbody>
+        <!--- Loop displaying members -->
         <?php for ($i = 0; $i < count($tabmembers); $i++) { ?>
             <tr>
                 <td><?php echo $tabmembers[$i]->first_name ?></td>
                 <td><?php echo $tabmembers[$i]->last_name ?></td>
                 <td><?php echo $tabmembers[$i]->email ?></td>
+
+                <!--- Displays if the member is admin or not  -->
                 <td>
                     <?php
                     if($tabmembers[$i]->is_admin == 1){echo "yes";}
@@ -28,6 +31,8 @@
                     }
                     ?>
                 </td>
+
+                <!--- Button that either changes the state of an user to admin or member -->
                 <td>
                     <?php if ($tabmembers[$i]->is_admin == 0) {?>
                     <form action="index.php?action=member" method="post">
@@ -39,6 +44,8 @@
                         </form>
                     <?php }?>
                 </td>
+
+                <!--- Display if the member is suspended or not -->
                 <td>
                     <?php
                     if($tabmembers[$i]->is_active == 1){echo "yes";}
@@ -47,6 +54,8 @@
                     }
                     ?>
                 </td>
+
+                <!--- Button that suspends/unsuspend the user  -->
                 <td>
                     <?php if ($tabmembers[$i]->is_active == 1 ) {?>
                     <form action="index.php?action=member" method="post">
@@ -60,6 +69,7 @@
                 </td>
             </tr>
         <?php } ?>
+        <!--- End of loop displaying the members -->
         </tbody>
     </table>
 </section>

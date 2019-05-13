@@ -1,12 +1,15 @@
 <div class="content">
     <h2 align="center">All the related Questions</h2>
 
+    <!--- Categories you can click on -->
     <div class="card-body">
         Categories :
         <?php
         foreach ($categories as $category) {
             ?>
-            <a href="index.php?action=category&catid=<?php echo "{$category->getCategoryId()}" ?>"><?php echo "{$category->getName()}"." "; ?></a>
+            <a href="index.php?action=category&catid=<?php echo "{$category->getCategoryId()}" ?>">
+                <?php echo "{$category->getName()}"." "; ?>
+            </a>
             <?php
         }
         ?>
@@ -21,6 +24,7 @@
         </tr>
         </thead>
         <tbody>
+        <!--- Loop displaying the questions -->
         <?php for ($i = 0; $i < count($tab_question_cat); $i++) { ?>
             <tr>
                 <td>
@@ -30,9 +34,10 @@
                         </span>
                     </a>
                 </td>
-               <td> <?php echo $tab_question_cat[$i]->getCatName() ?></td>
+                <td> <?php echo $tab_question_cat[$i]->getCatName() ?></td>
             </tr>
         <?php } ?>
+        <!--- End of loop -->
         </tbody>
     </table>
 </div>

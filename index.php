@@ -43,11 +43,11 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'MemberController.php');
         $controller = new MemberController($db);
         break;
-    case 'insert-question': # insert when the form is completed
+    case 'insert-question': # create a question
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db, 'create');
         break;
-    case 'insert-answer': # insert when the form is completed
+    case 'insert-answer': # answer a question
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'insert-answer');
         break;
@@ -55,7 +55,7 @@ switch ($_GET['action']) {
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'update-question');
         break;
-    case 'state-change': #change state
+    case 'state-change': #change state of a question
         require_once(PATH_CONTROLLERS.'QuestionController.php');
         $controller = new QuestionController($db,'state-change');
         break;

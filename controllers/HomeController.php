@@ -19,7 +19,7 @@ class HomeController
 
         $html_keyword='';
 
-
+        //Displaying the questions on the home page
         if (!empty($_POST['form_search'])
             && !empty($_POST['keyword'])) {
             $tabquestions=$this->_db->select_question($_POST['keyword']);
@@ -28,9 +28,7 @@ class HomeController
             $tabquestions=$this->_db->select_question();
         }
 
-       //$tabquestions=$this->_db->select_question();
-
-        $categories = $this->_db->select_categories();
+        $categories = $this->_db->select_categories(); //get categories
         require_once(PATH_VIEWS . 'home.php');
     }
 

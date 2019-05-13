@@ -3,7 +3,6 @@
     </br>
 
     <!--- Search bar -->
-
     <form action="index.php" method="post">
         <div class="wrap">
             <div class="search">
@@ -14,7 +13,7 @@
     </form>
     </br>
 
-    <!-- Categories -->
+    <!--- Categories you can click on -->
     <div class="divRow">
         Categories :
         <?php
@@ -25,6 +24,7 @@
         }
         ?>
     </div>
+
     </br>
 
     <!--- Questions table -->
@@ -33,6 +33,8 @@
         <tr>
             <th width="840"> <scope="col"> Question</th>
             <th width="200"> <scope="col"> Category</th>
+
+            <!--- Admin sight for the Delete, duplicate and open actions in the <tr> -->
             <?php
             if(isset($_SESSION['member']) and $_SESSION['member']){
                 if($_SESSION['member']->is_admin == 1 ) {?>
@@ -46,8 +48,10 @@
         </tr>
         </thead>
         <tbody>
+        <!--- Loop displaying the questions -->
         <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>
             <tr>
+                <!--- Question title -->
                 <td>
                     <a href="index.php?action=show-question&id=<?php echo $tabquestions[$i]->getId() ?>">
                         <span class="html"><?php echo $tabquestions[$i]->getTitle(); ?></span>
@@ -60,7 +64,7 @@
                 </td>
                 <td><?php echo $tabquestions[$i]->getCatName() ?></td>
 
-                <!--- Delete question -->
+                <!--- Delete question button -->
                 <?php
                 if(isset($_SESSION['member']) and $_SESSION['member']){
                     if($_SESSION['member']->is_admin == 1 ) {?>
@@ -72,7 +76,8 @@
                         </td>
                     <?php } }?>
 
-                <!--- Mark a question as open/duplicate -->
+                <!--- State forms (open, solved, duplicate),
+                changes depending on the state of the related question  -->
                 <?php
                 if(isset($_SESSION['member']) and $_SESSION['member']){
                     if($_SESSION['member']->is_admin == 1) {
@@ -105,10 +110,11 @@
                                 </div>
 
                             </td>
-                       <?php } } }?>
+                        <?php } } }?>
 
             </tr>
         <?php } ?>
+        <!--- End of loop displaying the questions -->
         </tbody>
     </table>
 

@@ -26,6 +26,7 @@ class MemberController
             die();
         }
 
+        //Takes the forms on the member page
         if(!empty($_POST['form_suspend'])){
             $this->_db->suspend_user($_POST['form_suspend']);
         }elseif(!empty($_POST['form_unsuspend'])){

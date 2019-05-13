@@ -28,6 +28,8 @@ class LoginController
         $notification = '';
         $member = false;
         if (!empty($_POST)) {
+            //Login conditions but bootstrap does it by default
+
          /*   if(empty($_POST['password']) and empty($_POST['email'])){
                 $notification = 'You must enter your email and password';
             }elseif (empty($_POST['password'])){
