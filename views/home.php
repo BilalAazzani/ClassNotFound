@@ -1,5 +1,5 @@
 <section class="content">
-    <h2 align="center">All the Questions </h2>
+    <h2 align="center"> All the Questions </h2>
     </br>
 
     <!--- Search bar -->
@@ -47,6 +47,7 @@
                 <?php } }?>
         </tr>
         </thead>
+
         <tbody>
         <!--- Loop displaying the questions -->
         <?php for ($i = 0; $i < count($tabquestions); $i++) { ?>

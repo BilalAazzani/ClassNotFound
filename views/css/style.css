@@ -156,3 +156,12 @@ background-color: lightgreen;
 padding: 15px 20px;
 height:50px;   /* Height of the footer */
 }
+
+h2 {
+    color : black;
+    font-variant : small-caps;
+    letter-spacing : 0.5em;
+    font-size : 120%;
+    text-align: center;
+    margin: auto;
+}
