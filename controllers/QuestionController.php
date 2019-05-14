@@ -40,12 +40,12 @@ class QuestionController
         //If a question is marked as duplicate, you cannot access it unless you're admin
         if(empty($_SESSION['authenticated']) and Db::get_question($_GET['id'])->state == 'D'){
                echo "<script>alert(\"This question is marked as duplicate.\");
-                         document.location.href ='http://localhost/projetphp/index.php';
+                         document.location.href ='index.php';
                 </script>";
 
         }elseif (Db::get_question($_GET['id'])->state == 'D' and $_SESSION['member']->is_admin=='0'){
             echo "<script>alert(\"This question is marked as duplicate.\");
-                         document.location.href ='http://localhost/projetphp/index.php';
+                         document.location.href ='index.php';
                 </script>";
         }
 
