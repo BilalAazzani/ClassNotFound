@@ -35,9 +35,9 @@
                 <!--- Button that either changes the state of an user to admin or member -->
                 <td>
                     <?php if ($tabmembers[$i]->is_admin == 0) {?>
-                    <form action="index.php?action=member" method="post">
-                        <button type="submit" name="form_make_admin" value="<?php echo $tabmembers[$i]->member_id ?>">Make admin</button>
-                    </form>
+                        <form action="index.php?action=member" method="post">
+                            <button type="submit" name="form_make_admin" value="<?php echo $tabmembers[$i]->member_id ?>">Make admin</button>
+                        </form>
                     <?php }else { ?>
                         <form action="index.php?action=member" method="post">
                             <button type="submit" name="form_make_member" value="<?php echo $tabmembers[$i]->member_id ?>">Make member</button>
@@ -58,14 +58,14 @@
                 <!--- Button that suspends/unsuspend the user  -->
                 <td>
                     <?php if ($tabmembers[$i]->is_active == 1 ) {?>
-                    <form action="index.php?action=member" method="post">
-                        <button type="submit" name="form_suspend" value="<?php echo $tabmembers[$i]->member_id ?>">Suspend</button>
-                    </form>
+                        <form action="index.php?action=member" method="post">
+                            <button type="submit" name="form_suspend" value="<?php echo $tabmembers[$i]->member_id ?>">Suspend</button>
+                        </form>
                     <?php }else{ ?>
                         <form action="index.php?action=member" method="post">
                             <button type="submit" name="form_unsuspend" value="<?php echo $tabmembers[$i]->member_id ?>">Unsuspend</button>
                         </form>
-                   <?php }?>
+                    <?php }?>
                 </td>
             </tr>
         <?php } ?>
