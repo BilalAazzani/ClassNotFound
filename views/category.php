@@ -33,6 +33,11 @@
                             <?php echo $tab_question_cat[$i]->getTitle() ?>
                         </span>
                     </a>
+                    <?php  if($tab_question_cat[$i]->getState()=='S') {
+                        echo '[solved]';
+                    }elseif ($tab_question_cat[$i]->getState()=='D'){
+                        echo '[duplicate]';
+                    } ?>
                 </td>
                 <td> <?php echo $tab_question_cat[$i]->getCatName() ?></td>
             </tr>
