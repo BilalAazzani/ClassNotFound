@@ -37,7 +37,7 @@ class QuestionController
     public function show() {
         $notification='';
 
-        //If a question is marked as duplicate, you cannot access it unless you're admin
+        //If a question is marked as duplicate, you cannot access it unless you're connected as an admin
         if(empty($_SESSION['authenticated']) and Db::get_question($_GET['id'])->state == 'D'){
                echo "<script>alert(\"This question is marked as duplicate.\");
                          document.location.href ='index.php';
