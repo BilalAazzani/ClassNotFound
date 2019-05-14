@@ -15,7 +15,7 @@
 
     <!--- Categories you can click on -->
     <div class="divRow">
-        <strong> Categories : </strong>
+        <strong> Categorie : </strong>
         <?php
         foreach ($categories as $category) {
             ?>
