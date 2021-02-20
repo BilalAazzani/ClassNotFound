@@ -1,1 +1,1 @@
-BAC1 Web Project (MVC Architecture)
+Web Project (MVC Architecture)
