@@ -109,7 +109,6 @@ INSERT INTO `members` (`member_id`, `first_name`, `last_name`, `email`, `passwor
 (4, 'member3', 'member3', 'member3@gmail.com', '$2y$10$M7hoOLqK7h3vV8LGG/uebekYJYsqn.kzAbMp0ozdGwK6OKJBWqgB6', 0, 1),
 (17, 'member4', 'member4', 'member4@gmail.com', '$2y$10$PYyKI43U/9jf4cKaHppg0ehfs0XIvt8v0S4aLyZ2CiLw0AJ1OT.YO', 0, 1),
 (18, 'member6', 'member6', 'member6@gmail.com', '$2y$10$3HoQI5/j/zja5JDZDRHNwu3T5h5wdmQEWwJdz1N.TeKxO9Up92A1W', 0, 1),
-(19, 'bilal', 'aazzani', 'bilalaazzani@hotmail.com', '$2y$10$L.GSr1pLZE9uItGTAE3uKuiH1QwTmCWsOUdJpIAhkNt67xl75H5Vq', 1, 1);
 
 -- --------------------------------------------------------
 
